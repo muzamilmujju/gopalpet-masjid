@@ -125,4 +125,31 @@ footer {
   z-index: 2;
 }
 
+.announcement-table {
+  width: 90%;
+  max-width: 650px;
+  margin: 15px auto;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.announcement-table th {
+  background: #142850;
+  color: white;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.announcement-table td {
+  border: 1px solid #ddd;
+  padding: 14px;
+  background: #fff3cd;
+  font-weight: 600;
+}
+
+.announcement-table tr:nth-child(3) td {
+  background: #e8f5e9;
+}
+
 
