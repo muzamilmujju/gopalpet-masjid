@@ -108,4 +108,11 @@ footer {
   font-size: 14px;
   color: #ddd;
 }
+#clock {
+  font-size: 22px;
+  color: gold;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
 
