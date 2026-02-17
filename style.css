@@ -88,8 +88,8 @@ th {
 }
 
 .gallery img {
-  width: 220px;        /* controls size */
-  height: 160px;       /* uniform height */
+  width: 180px;        /* controls size */
+  height: 130px;       /* uniform height */
   object-fit: cover;   /* prevents stretching */
   border-radius: 8px;
 }
@@ -102,5 +102,6 @@ footer {
   font-size: 14px;
   color: #ddd;
 }
+
 
 
