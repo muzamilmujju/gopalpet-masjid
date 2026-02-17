@@ -80,6 +80,21 @@ th {
   background: #ffd700;
 }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.gallery img {
+  width: 220px;        /* controls size */
+  height: 160px;       /* uniform height */
+  object-fit: cover;   /* prevents stretching */
+  border-radius: 8px;
+}
+
+
 footer {
   background: #0f3057;
   padding: 15px;
@@ -87,4 +102,5 @@ footer {
   font-size: 14px;
   color: #ddd;
 }
+
 
