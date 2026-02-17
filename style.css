@@ -111,8 +111,18 @@ footer {
 #clock {
   font-size: 22px;
   color: gold;
-  margin-bottom: 10px;
   font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+@media (max-width: 600px) {
+  #clock {
+    font-size: 20px;
+  }
+}
+#clock {
+  position: relative;
+  z-index: 2;
 }
 
 
