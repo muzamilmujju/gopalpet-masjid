@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gopalpet Masjid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🕌 Gopalpet Masjid 🕌</h1>
+  <p>Welcome to Gopalpet Masjid</p>
+</header>
+
+<nav>
+  <button onclick="showTab('home')">Home</button>
+  <button onclick="showTab('prayer')">Prayer Timings</button>
+  <button onclick="showTab('duas')">Duas</button>
+  <button onclick="showTab('guide')">Ramadan Guide</button>
+  <button onclick="showTab('location')">Location</button>
+  <button onclick="showTab('gallery')">Gallery</button>
+
+  
+
+</nav>
+
+<section id="location" class="tab">
+  <h2>📍 Masjid Location</h2>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.5482385012233!2d78.1434093!3d16.396959799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bca11007fc93c65%3A0xe4d41fb6372b6f6b!2sJamia%20masjid%20gopalpeta!5e0!3m2!1sen!2sin!4v1771311045059!5m2!1sen!2sin"
+    width="100%"
+    height="320"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+  </iframe>
+
+  <br><br>
+
+  <a href="https://maps.app.goo.gl/SfXpAiyHqHBge3xQA" target="_blank" class="map-btn">
+    Open in Google Maps
+  </a>
+
+</section>
+
+
+<!-- HOME -->
+<section id="home" class="tab active">
+  <h2>Assalamu Alaikum 🤍</h2>
+  <p>
+    This website provides prayer timings, Ramadan duas, and guidance
+    for our community. May Allah bless everyone and strengthen our unity.
+  </p>
+</section>
+
+<!-- PRAYER TIMES -->
+<section id="prayer" class="tab">
+  <h2>🕌 Daily Prayer Timings</h2>
+  <table>
+    <tr>
+      <th>Namaz</th>
+      <th>Azaan</th>
+      <th>Jamaat</th>
+    </tr>
+    <tr>
+      <td>Fazar</td>
+      <td>5:15 AM</td>
+      <td>5:30 AM</td>
+    </tr>
+    <tr>
+      <td>Zohar</td>
+      <td>1:15 PM</td>
+      <td>1:30 PM</td>
+    </tr>
+    <tr>
+      <td>Asar</td>
+      <td>4:45 PM</td>
+      <td>5:00 PM</td>
+    </tr>
+    <tr>
+      <td>Maghrib</td>
+      <td>6:20 PM</td>
+      <td>6:25 PM</td>
+    </tr>
+    <tr>
+      <td>Isha</td>
+      <td>8:00 PM</td>
+      <td>8:30 PM</td>
+    </tr>
+     <tr>
+      <td>Juma</td>
+      <td>12:30 PM</td>
+      <td>1:40 PM</td>
+    </tr>
+     
+
+  </table>
+<h3>🌙 Taraweeh Prayer</h3>
+<table>
+  <tr>
+    <th>Prayer</th>
+    <th>Time</th>
+  </tr>
+  <tr>
+    <td>Isha Jamaat</td>
+    <td>8:30 PM</td>
+  </tr>
+  <tr>
+    <td>Taraweeh Start</td>
+    <td> 8:45 PM</td>
+  </tr>
+</table>
+
+</section>
+
+<!-- DUAS -->
+<section id="duas" class="tab">
+  <h2>🤲 Ramadan Duas</h2>
+  <ul class="dua-list">
+    <li>Allahumma innaka afuwwun tuhibbul afwa fa’fu anni</li>
+    <li>Allahumma barik lana fi Ramadan</li>
+    <li>Allahumma taqabbal minna siyamana wa qiyamana</li>
+    <li>Allahumma inni laka sumtu wa bika aamantu</li>
+    <li>Allahumma ajirni minan naar</li>
+    <li>Rabbi zidni ilma</li>
+    <li>Rabbi yassir wala tu’assir</li>
+    <li>Allahumma inni as’aluka al-huda wat-tuqa</li>
+    <li>Allahumma thabbit qalbi ala deenik</li>
+    <li>Allahumma ghfir li dhanbi kullahu</li>
+    <li>Allahumma inni as’aluka al-jannah</li>
+    <li>Allahumma inni a’udhu bika min al-hammi wal-hazan</li>
+    <li>Allahumma barik li fi rizqi</li>
+    <li>Rabbi habli min ladunka rahmah</li>
+    <li>Allahumma inni as’aluka hubbak</li>
+    <li>Allahumma a’inni ala dhikrika wa shukrika</li>
+    <li>Allahumma inni as’aluka husn al-khatimah</li>
+    <li>Allahumma ij’alni minas-sabireen</li>
+    <li>Allahumma ij’al qalbi nooran</li>
+    <li>Allahumma arzuqni ikhlasan</li>
+    <li>Allahumma inni as’aluka afiyah</li>
+    <li>Allahumma a’tina fid-dunya hasanah</li>
+    <li>Allahumma ihdina siratal mustaqeem</li>
+    <li>Allahumma barik lana fi awqatina</li>
+    <li>Allahumma ij’alna min al-muttaqeen</li>
+  </ul>
+</section>
+
+<!-- GUIDE -->
+<section id="guide" class="tab">
+  <h2>🌙 Ramadan Routine for Youth</h2>
+
+  <div class="routine-card">
+    <h3>🕓 Suhoor & Fajr</h3>
+    <ul>
+      <li>Wake early & eat healthy</li>
+      <li>Pray Fajr & read Qur’an</li>
+    </ul>
+  </div>
+
+  <div class="routine-card">
+    <h3>☀ Daytime</h3>
+    <ul>
+      <li>Study/work with focus</li>
+      <li>Avoid bad habits & gossip</li>
+    </ul>
+  </div>
+
+  <div class="routine-card">
+    <h3>🕔 Before Iftar</h3>
+    <ul>
+      <li>Make dua</li>
+      <li>Help at home or masjid</li>
+    </ul>
+  </div>
+
+  <div class="routine-card">
+    <h3>🕕 Iftar</h3>
+    <ul>
+      <li>Break fast with dates & water</li>
+      <li>Eat moderately</li>
+    </ul>
+  </div>
+
+  <div class="routine-card">
+    <h3>🌙 Night</h3>
+    <ul>
+      <li>Pray Taraweeh</li>
+      <li>Spend time in masjid</li>
+      <li>Sleep early</li>
+    </ul>
+  </div>
+
+
+
+  
+
+</section>
+<section id="gallery" class="tab">
+  <h2>🕌 Masjid Gallery</h2>
+
+  <div class="gallery">
+    <img src="masjidphoto1.jpeg" alt="Masjid View">
+    <img src="masjid2.jpg" alt="Prayer Hall">
+    <img src="masjid3.jpg" alt="Evening View">
+  </div>
+</section>
+
+
+<footer>
+  <p>© 2026 Gopalpet Masjid</p>
+  <p>Managed by Masjid Youth Committee</p>
+  <p>Website developed for community service 🤍</p>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
