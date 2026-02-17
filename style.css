@@ -88,11 +88,17 @@ th {
 }
 
 .gallery img {
-  width: 180px;        /* controls size */
-  height: 130px;       /* uniform height */
+  width: 220px;        /* controls size */
+  height: 160px;       /* uniform height */
   object-fit: cover;   /* prevents stretching */
   border-radius: 8px;
 }
+
+.gallery img:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
 
 
 footer {
@@ -102,6 +108,4 @@ footer {
   font-size: 14px;
   color: #ddd;
 }
-
-
 
