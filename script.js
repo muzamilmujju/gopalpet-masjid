@@ -56,10 +56,10 @@ function startRamadanTimers() {
     const now = new Date();
 
     let sehriToday = new Date();
-    sehriToday.setHours(5, 40, 0, 0);
+    sehriToday.setHours(5, 19, 0, 0);
 
     let iftarToday = new Date();
-    iftarToday.setHours(18,  24, 0);
+    iftarToday.setHours(18,  25, 0);
 
     let sehriNext = new Date(sehriToday);
     sehriNext.setDate(sehriNext.getDate() + 1);
