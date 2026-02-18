@@ -108,48 +108,63 @@ footer {
   font-size: 14px;
   color: #ddd;
 }
+
+
 #clock {
   font-size: 22px;
   color: gold;
+  margin-bottom: 10px;
   font-weight: bold;
-  text-align: center;
-  margin: 10px 0;
-}
-@media (max-width: 600px) {
-  #clock {
-    font-size: 20px;
-  }
-}
-#clock {
-  position: relative;
-  z-index: 2;
 }
 
-.announcement-table {
+.fasting-table {
   width: 90%;
-  max-width: 650px;
+  max-width: 600px;
   margin: 15px auto;
   border-collapse: collapse;
   text-align: center;
-  font-family: Arial, sans-serif;
 }
 
-.announcement-table th {
+.fasting-table th {
   background: #142850;
   color: white;
-  padding: 12px;
-  font-size: 18px;
+  padding: 10px;
 }
 
-.announcement-table td {
+.fasting-table td {
   border: 1px solid #ddd;
-  padding: 14px;
-  background: #fff3cd;
-  font-weight: 600;
+  padding: 12px;
+  font-weight: bold;
 }
 
-.announcement-table tr:nth-child(3) td {
+.fasting-table tr:nth-child(2) {
+  background: #fff3cd;
+}
+
+.fasting-table tr:nth-child(3) {
   background: #e8f5e9;
 }
 
+/* Warning (last seconds) */
+.warning {
+  color: red;
+  font-weight: bold;
+}
 
+/* Sehri blink (RED) */
+.blink-sehri {
+  animation: blinkAnim 1s infinite;
+  color: red;
+  font-weight: bold;
+}
+
+/* Iftar blink (GREEN) */
+.blink-iftar {
+  animation: blinkAnim 1s infinite;
+  color: green;
+  font-weight: bold;
+}
+
+@keyframes blinkAnim {
+  50% { opacity: 0; }
+}
