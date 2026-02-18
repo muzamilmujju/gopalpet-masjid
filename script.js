@@ -1,10 +1,12 @@
+// ================= TAB SWITCH =================
 function showTab(tabId) {
   const tabs = document.querySelectorAll('.tab');
   tabs.forEach(tab => tab.classList.remove('active'));
-
   document.getElementById(tabId).classList.add('active');
 }
 
+
+// ================= LIVE CLOCK =================
 function updateClock() {
   const now = new Date();
 
@@ -12,19 +14,121 @@ function updateClock() {
   let minutes = now.getMinutes();
   let seconds = now.getSeconds();
 
-  let ampm = hours >= 12 ? "PM" : "AM";
+  const ampm = hours >= 12 ? "PM" : "AM";
 
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-
+  hours = hours % 12 || 12;
   minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  const timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
+  const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
 
-  document.getElementById("clock").innerHTML =
-    "🕒 Current Time: " + timeString;
+  const clock = document.getElementById("clock");
+  if (clock) {
+    clock.innerHTML = "🕒 Current Time: " + timeString;
+  }
 }
 
+
+// ================= RAMADAN TIMERS =================
+function startRamadanTimers() {
+
+  function getCountdown(target, element) {
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) return "Time Now";
+
+    const secondsTotal = Math.floor(diff / 1000);
+    const hours = Math.floor(secondsTotal / 3600);
+    const minutes = Math.floor((secondsTotal % 3600) / 60);
+    const seconds = secondsTotal % 60;
+
+    if (secondsTotal <= 10) {
+      element.classList.add("warning");
+    } else {
+      element.classList.remove("warning");
+    }
+
+    return `${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  function updateTimers() {
+    const now = new Date();
+
+    let sehriToday = new Date();
+    sehriToday.setHours(5, 40, 0, 0);
+
+    let iftarToday = new Date();
+    iftarToday.setHours(18,  24, 0);
+
+    let sehriNext = new Date(sehriToday);
+    sehriNext.setDate(sehriNext.getDate() + 1);
+
+    const sehri = document.getElementById("sehriTimer");
+    const iftar = document.getElementById("iftarTimer");
+
+    if (!sehri || !iftar) return;
+
+    const BLINK_DURATION = 2 * 60 * 1000; // 2 minutes
+
+    // ===== SEHRI LOGIC =====
+    // ===== SEHRI LOGIC =====
+if (now < sehriToday) {
+  // before sehri ends
+  sehri.classList.remove("blink-sehri");
+  sehri.innerHTML = getCountdown(sehriToday, sehri);
+}
+else if (now >= sehriToday && now < iftarToday) {
+  // after sehri ends → closed
+  sehri.innerHTML = "Sehri Closed";
+  sehri.classList.remove("warning");
+
+  if (!sehri.dataset.blinkStart) {
+    sehri.dataset.blinkStart = now.getTime();
+  }
+
+  if (now.getTime() - sehri.dataset.blinkStart < BLINK_DURATION) {
+    sehri.classList.add("blink-sehri");
+  } else {
+    sehri.classList.remove("blink-sehri");
+  }
+}
+else {
+  // after iftar → start next sehri countdown
+  sehri.dataset.blinkStart = 0;
+  sehri.classList.remove("blink-sehri");
+  sehri.innerHTML = getCountdown(sehriNext, sehri);
+}
+
+
+// ===== IFTAR LOGIC =====
+if (now < iftarToday) {
+  iftar.classList.remove("blink-iftar");
+  iftar.innerHTML = getCountdown(iftarToday, iftar);
+}
+else {
+  iftar.innerHTML = "Break Fast Now";
+  iftar.classList.remove("warning");
+
+  if (!iftar.dataset.blinkStart) {
+    iftar.dataset.blinkStart = now.getTime();
+  }
+
+  if (now.getTime() - iftar.dataset.blinkStart < BLINK_DURATION) {
+    iftar.classList.add("blink-iftar");
+  } else {
+    iftar.classList.remove("blink-iftar");
+  }
+}
+
+  }
+
+  setInterval(updateTimers, 1000);
+  updateTimers();
+}
+
+
+// ================= START FUNCTIONS =================
 setInterval(updateClock, 1000);
 updateClock();
+startRamadanTimers();
