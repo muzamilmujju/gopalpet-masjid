@@ -178,23 +178,22 @@ footer {
   width: 100%;
   padding: 10px;
   background: #0f5132;
-  color: black;
+  color: white; /* better contrast */
   border: none;
   text-align: left;
   font-size: 16px;
   border-radius: 6px;
-  cursor: pointer;
   cursor: pointer;
   touch-action: manipulation;
 }
 
 .dua-content {
   display: none;
-  background: black
+  background: #000; /* black background */
+  color: #fff; /* text visible on black */
   padding: 12px;
   border-radius: 6px;
   margin-top: 5px;
   line-height: 1.6;
 }
-
 
