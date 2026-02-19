@@ -210,12 +210,26 @@ footer {
 }
 
 .guide-card {
-  background: black;
+  background: #f8f9fa;
   border-left: 5px solid #0f5132;
   padding: 14px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
+
+.guide-card:hover {
+  transform: translateY(-3px);
+}
+
+.guide-card h3 {
+  margin: 6px 0;
+  color: #0f5132;
+}
+
+.icon {
+  font-size: 22px;
+}
+
 
 
