@@ -135,10 +135,8 @@ startRamadanTimers();
 
 function toggleDua(id) {
   const content = document.getElementById(id);
+  const isVisible = window.getComputedStyle(content).display === "block";
 
-  if (content.style.display === "block") {
-    content.style.display = "none";
-  } else {
-    content.style.display = "block";
-  }
+  content.style.display = isVisible ? "none" : "block";
 }
+
