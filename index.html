@@ -166,61 +166,113 @@
 </section>
 
 <!-- DUAS -->
-<section id="duas" class="tab">
-  <h2>🤲 Ramadan Duas</h2>
-  <ul class="dua-list">
-    <li>Allahumma innaka afuwwun tuhibbul afwa fa’fu anni</li>
-    <li>Allahumma barik lana fi Ramadan</li>
-    <li>Allahumma taqabbal minna siyamana wa qiyamana</li>
-    <li>Allahumma inni laka sumtu wa bika aamantu</li>
-    <li>Allahumma ajirni minan naar</li>
-    <li>Rabbi zidni ilma</li>
-    <li>Rabbi yassir wala tu’assir</li>
-    <li>Allahumma inni as’aluka al-huda wat-tuqa</li>
-    <li>Allahumma thabbit qalbi ala deenik</li>
-    <li>Allahumma ghfir li dhanbi kullahu</li>
-    <li>Allahumma inni as’aluka al-jannah</li>
-    <li>Allahumma inni a’udhu bika min al-hammi wal-hazan</li>
-    <li>Allahumma barik li fi rizqi</li>
-    <li>Rabbi habli min ladunka rahmah</li>
-    <li>Allahumma inni as’aluka hubbak</li>
-    <li>Allahumma a’inni ala dhikrika wa shukrika</li>
-    <li>Allahumma inni as’aluka husn al-khatimah</li>
-    <li>Allahumma ij’alni minas-sabireen</li>
-    <li>Allahumma ij’al qalbi nooran</li>
-    <li>Allahumma arzuqni ikhlasan</li>
-    <li>Allahumma inni as’aluka afiyah</li>
-    <li>Allahumma a’tina fid-dunya hasanah</li>
-    <li>Allahumma ihdina siratal mustaqeem</li>
-    <li>Allahumma barik lana fi awqatina</li>
-    <li>Allahumma ij’alna min al-muttaqeen</li>
-  </ul>
-  <hr>
+ <section id="duas" class="tab">
+  <h2>🤲 Duas & Surahs</h2>
 
-<h3>🌙 Fasting Duas</h3>
+  <!-- Ramadan Duas -->
+  <div class="dua-box">
+    <button class="dua-btn" onclick="toggleDua('ramadanDua')">
+      Ramadan Duas ▼
+    </button>
+    <div id="ramadanDua" class="dua-content">
+      <ul>
+  <li>Astaghfirullah</li>
+  <li>Allahumma innaka afuwwun tuhibbul afwa fa’fu anni</li>
+  <li>Rabbi ighfir li wa tub ‘alayya</li>
+  <li>Allahummaghfir li dhanbi kullahu</li>
+  <li>Allahumma taqabbal minna siyamana wa qiyamana</li>
+  <li>Allahumma taqabbal minna innaka antas-sami‘ul ‘aleem</li>
+  <li>Allahumma inni laka sumtu</li>
+  <li>Allahumma inni laka sumtu wa bika aamantu</li>
+  <li>Allahumma inni as’aluka al-jannah</li>
+  <li>Wa a’udhu bika minan-naar</li>
+  <li>Allahumma ajirni minan-naar</li>
+  <li>Allahumma ihdini siratal mustaqeem</li>
+  <li>Allahumma thabbit qalbi ala deenik</li>
+  <li>Allahumma zidna imanan</li>
+  <li>Allahumma barik lana fima razaqtana</li>
+  <li>Allahumma inni as’aluka rizqan tayyiban</li>
+  <li>Allahumma la sahla illa ma ja‘altahu sahla</li>
+  <li>Rabbi yassir wa la tu’assir</li>
+  <li>Allahumma inni as’aluka al-‘afiyah</li>
+  <li>Allahumma ishfi maradana</li>
+  <li>Allahumma a’inni ala dhikrika wa shukrika</li>
+  <li>Allahumma ij’alni minas-sabireen</li>
+  <li>Rabbir hamhuma kama rabbayani sagheera</li>
+  <li>Allahumma ihfaz ahli wa awladi</li>
+  <li>Rabbi zidni ilma</li>
+  <li>Allahumma inni as’aluka husnal khatimah</li>
+  <li>Allahumma barik lana fi awqatina</li>
+  <li>Allahumma ij’al qalbi nooran</li>
+  <li>Allahumma aslih li sha’ni kullah</li>
+  <li>Allahumma ij’alna min al-muttaqeen</li>
+</ul>
 
-<table class="dua-table">
-  <tr>
-    <th>Occasion</th>
-    <th>Dua (Transliteration)</th>
-    <th>Meaning</th>
-  </tr>
+    </div>
+  </div>
 
-  <tr>
-    <td>Sehri (Niyyat for Fast)</td>
-    <td>Nawaitu an asuma ghadal lillahi ta'ala min fardi Ramadan</td>
-    <td>I intend to keep the fast tomorrow for Allah in the month of Ramadan.</td>
-  </tr>
+  <!-- Sehri & Iftar -->
+   <table>
+  <div class="dua-box">
+    <button class="dua-btn" onclick="toggleDua('fastingDua')">
+      Sehri & Iftar Duas ▼
+    </button>
+    <div id="fastingDua" class="dua-content">
+      <p><strong>Sehri Niyyah:</strong><br>
+      Nawaitu an asuma ghadal lillahi ta'ala min fardi Ramadan</p>
 
-  <tr>
-    <td>Iftar (Breaking Fast)</td>
-    <td>Allahumma laka sumtu wa bika aamantu wa ‘alayka tawakkaltu wa ‘ala rizqika aftartu.</td>
-    <td>O Allah, I fasted for You, I believe in You, I trust in You, and with Your provision I break my fast.</td>
-  </tr>
+      <p><strong>Iftar Dua:</strong><br>
+      Allahumma laka sumtu wa bika aamantu wa ‘ala rizqika aftartu</p>
+    </div>
+  </div>
+ </table>
+  <!-- Morning & Evening -->
+  <div class="dua-box">
+    <button class="dua-btn" onclick="toggleDua('morningDua')">
+      Morning & Evening Duas ▼
+    </button>
+    <div id="morningDua" class="dua-content">
+      <p>Bismillahillazi la yadurru ma'asmihi shay'un...</p>
+      <p>Astaghfirullaha Rabbi min kulli dhanbin wa atubu ilayh</p>
+    </div>
+  </div>
 
-</table>
+  <!-- Surah Al-Qadr -->
+  <div class="dua-box">
+    <button class="dua-btn" onclick="toggleDua('qadrSurah')">
+      Surah Al-Qadr ▼
+    </button>
+    <div id="qadrSurah" class="dua-content">
+      Innaa anzalnaahu fee laylatil qadr<br>
+      Wa maa adraaka maa laylatul qadr<br>
+      Laylatul qadri khayrun min alfi shahr<br>
+      Tanazzalul malaa’ikatu war-roohu feehaa bi izni rabbihim min kulli amr<br>
+      Salaamun hiya hatta matla'il fajr
+    </div>
+  </div>
+
+  <!-- Ayatul Kursi -->
+  <div class="dua-box">
+    <button class="dua-btn" onclick="toggleDua('kursiSurah')">
+      Ayatul Kursi ▼
+    </button>
+    <div id="kursiSurah" class="dua-content">
+      Allahu la ilaha illa huwa al-hayyul qayyum.<br>
+La ta’khudhuhu sinatun wa la nawm.<br>
+Lahu ma fis-samawati wa ma fil-ard.<br>
+Man dhal-ladhi yashfa’u ‘indahu illa bi-idhnih.<br>
+Ya’lamu ma bayna aydihim wa ma khalfahum.<br>
+Wa la yuhituna bi shay’in min ‘ilmihi illa bima sha’.<br>
+Wasi‘a kursiyyuhus-samawati wal-ard.<br>
+Wa la ya’uduhu hifdhuhuma.<br>
+Wa huwal ‘aliyyul ‘azeem.
+
+    </div>
+  </div>
+
 
 </section>
+
 
 <!-- GUIDE -->
 <section id="guide" class="tab">
@@ -294,6 +346,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
