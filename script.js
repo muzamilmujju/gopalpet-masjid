@@ -134,9 +134,16 @@ updateClock();
 startRamadanTimers();
 
 function toggleDua(id) {
+  const sections = document.querySelectorAll('.dua-content');
+
+  sections.forEach(section => {
+    if (section.id !== id) {
+      section.style.display = "none";
+    }
+  });
+
   const content = document.getElementById(id);
   const isVisible = window.getComputedStyle(content).display === "block";
 
   content.style.display = isVisible ? "none" : "block";
 }
-
