@@ -132,3 +132,13 @@ else {
 setInterval(updateClock, 1000);
 updateClock();
 startRamadanTimers();
+
+function toggleDua(id) {
+  const content = document.getElementById(id);
+
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}
