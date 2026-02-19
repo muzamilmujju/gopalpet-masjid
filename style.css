@@ -168,3 +168,29 @@ footer {
 @keyframes blinkAnim {
   50% { opacity: 0; }
 }
+
+
+.dua-box {
+  margin-bottom: 12px;
+}
+
+.dua-btn {
+  width: 100%;
+  padding: 10px;
+  background: #0f5132;
+  color: black;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dua-content {
+  display: none;
+  background: black
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 5px;
+  line-height: 1.6;
+}
