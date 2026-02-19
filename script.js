@@ -1,17 +1,14 @@
 // ================= TAB SWITCH =================
-function showTab(tabId) {
+function showTab(tabId, btn) {
   const tabs = document.querySelectorAll('.tab');
   const buttons = document.querySelectorAll('nav button');
 
   tabs.forEach(tab => tab.classList.remove('active'));
-  buttons.forEach(btn => btn.classList.remove('active-btn'));
+  buttons.forEach(button => button.classList.remove('active-btn'));
 
   document.getElementById(tabId).classList.add('active');
-
-  event.target.classList.add('active-btn');
+  if (btn) btn.classList.add('active-btn');
 }
-
-
 // ================= LIVE CLOCK =================
 function updateClock() {
   const now = new Date();
