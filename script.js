@@ -1,8 +1,14 @@
 // ================= TAB SWITCH =================
 function showTab(tabId) {
   const tabs = document.querySelectorAll('.tab');
+  const buttons = document.querySelectorAll('nav button');
+
   tabs.forEach(tab => tab.classList.remove('active'));
+  buttons.forEach(btn => btn.classList.remove('active-btn'));
+
   document.getElementById(tabId).classList.add('active');
+
+  event.target.classList.add('active-btn');
 }
 
 
