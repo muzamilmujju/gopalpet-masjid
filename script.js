@@ -200,8 +200,8 @@ function resetGeneral() {
   document.getElementById("generalCount").textContent = generalCount;
 }
 
-// tap anywhere inside each counter
-document.addEventListener("click", function(e) {
+// Detect tap on mobile & click on desktop
+function handleTap(e) {
 
   const dhikr = document.getElementById("dhikrApp");
   const general = document.getElementById("generalApp");
@@ -213,5 +213,32 @@ document.addEventListener("click", function(e) {
   if (general && general.contains(e.target) && e.target.tagName !== "BUTTON") {
     increaseGeneral();
   }
+}
 
-});
+// ===== MOBILE SAFE TAP HANDLER =====
+
+// detect if device supports touch
+const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+// use only ONE event to avoid double firing
+const tapEvent = isTouchDevice ? "touchend" : "click";
+
+document.addEventListener(tapEvent, function(e) {
+
+  const dhikr = document.getElementById("dhikrApp");
+  const general = document.getElementById("generalApp");
+
+  if (!dhikr || !general) return;
+
+  // prevent double tap zoom delay
+  if (isTouchDevice) e.preventDefault();
+
+  if (dhikr.contains(e.target) && e.target.tagName !== "BUTTON") {
+    increaseDhikr();
+  }
+
+  if (general.contains(e.target) && e.target.tagName !== "BUTTON") {
+    increaseGeneral();
+  }
+
+}, { passive: false });
