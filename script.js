@@ -1,14 +1,16 @@
-function showTab(tabId, btn) {
+// ================= TAB SWITCH =================
+function showTab(tabId) {
   const tabs = document.querySelectorAll('.tab');
   const buttons = document.querySelectorAll('nav button');
 
   tabs.forEach(tab => tab.classList.remove('active'));
-  buttons.forEach(button => button.classList.remove('active-btn'));
+  buttons.forEach(btn => btn.classList.remove('active-btn'));
 
-  const activeTab = document.getElementById(tabId);
-  if (activeTab) activeTab.classList.add('active');
-  if (btn) btn.classList.add('active-btn');
+  document.getElementById(tabId).classList.add('active');
+
+  event.target.classList.add('active-btn');
 }
+
 
 // ================= LIVE CLOCK =================
 function updateClock() {
@@ -21,14 +23,17 @@ function updateClock() {
   const ampm = hours >= 12 ? "PM" : "AM";
 
   hours = hours % 12 || 12;
-  minutes = minutes.toString().padStart(2, "0");
-  seconds = seconds.toString().padStart(2, "0");
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
 
   const clock = document.getElementById("clock");
   if (clock) {
-    clock.innerHTML = "🕒 Current Time: " + `${hours}:${minutes}:${seconds} ${ampm}`;
+    clock.innerHTML = "🕒 Current Time: " + timeString;
   }
 }
+
 
 // ================= RAMADAN TIMERS =================
 function startRamadanTimers() {
@@ -39,15 +44,18 @@ function startRamadanTimers() {
 
     if (diff <= 0) return "Time Now";
 
-    const total = Math.floor(diff / 1000);
-    const h = Math.floor(total / 3600);
-    const m = Math.floor((total % 3600) / 60);
-    const s = total % 60;
+    const secondsTotal = Math.floor(diff / 1000);
+    const hours = Math.floor(secondsTotal / 3600);
+    const minutes = Math.floor((secondsTotal % 3600) / 60);
+    const seconds = secondsTotal % 60;
 
-    if (total <= 10) element.classList.add("warning");
-    else element.classList.remove("warning");
+    if (secondsTotal <= 10) {
+      element.classList.add("warning");
+    } else {
+      element.classList.remove("warning");
+    }
 
-    return `${h}h ${m}m ${s}s`;
+    return `${hours}h ${minutes}m ${seconds}s`;
   }
 
   function updateTimers() {
@@ -57,96 +65,116 @@ function startRamadanTimers() {
     sehriToday.setHours(5, 19, 0, 0);
 
     let iftarToday = new Date();
-    iftarToday.setHours(18, 25, 0, 0);
+    iftarToday.setHours(18,  25, 0);
 
     let sehriNext = new Date(sehriToday);
     sehriNext.setDate(sehriNext.getDate() + 1);
 
     const sehri = document.getElementById("sehriTimer");
     const iftar = document.getElementById("iftarTimer");
+
     if (!sehri || !iftar) return;
 
-    const BLINK_DURATION = 2 * 60 * 1000;
+    const BLINK_DURATION = 2 * 60 * 1000; // 2 minutes
 
-    // ===== SEHRI =====
-    if (now < sehriToday) {
-      sehri.classList.remove("blink-sehri");
-      sehri.innerHTML = getCountdown(sehriToday, sehri);
-    }
-    else if (now >= sehriToday && now < iftarToday) {
-      sehri.innerHTML = "Sehri Closed";
-      sehri.classList.remove("warning");
+    // ===== SEHRI LOGIC =====
+    // ===== SEHRI LOGIC =====
+if (now < sehriToday) {
+  // before sehri ends
+  sehri.classList.remove("blink-sehri");
+  sehri.innerHTML = getCountdown(sehriToday, sehri);
+}
+else if (now >= sehriToday && now < iftarToday) {
+  // after sehri ends → closed
+  sehri.innerHTML = "Sehri Closed";
+  sehri.classList.remove("warning");
 
-      if (!sehri.dataset.blinkStart) {
-        sehri.dataset.blinkStart = Date.now();
-      }
+  if (!sehri.dataset.blinkStart) {
+    sehri.dataset.blinkStart = now.getTime();
+  }
 
-      if (Date.now() - Number(sehri.dataset.blinkStart) < BLINK_DURATION) {
-        sehri.classList.add("blink-sehri");
-      } else {
-        sehri.classList.remove("blink-sehri");
-      }
-    }
-    else {
-      sehri.dataset.blinkStart = "";
-      sehri.classList.remove("blink-sehri");
-      sehri.innerHTML = getCountdown(sehriNext, sehri);
-    }
+  if (now.getTime() - sehri.dataset.blinkStart < BLINK_DURATION) {
+    sehri.classList.add("blink-sehri");
+  } else {
+    sehri.classList.remove("blink-sehri");
+  }
+}
+else {
+  // after iftar → start next sehri countdown
+  sehri.dataset.blinkStart = 0;
+  sehri.classList.remove("blink-sehri");
+  sehri.innerHTML = getCountdown(sehriNext, sehri);
+}
 
-    // ===== IFTAR =====
-    if (now < iftarToday) {
-      iftar.classList.remove("blink-iftar");
-      iftar.innerHTML = getCountdown(iftarToday, iftar);
-    }
-    else {
-      iftar.innerHTML = "Break Fast Now";
-      iftar.classList.remove("warning");
 
-      if (!iftar.dataset.blinkStart) {
-        iftar.dataset.blinkStart = Date.now();
-      }
+// ===== IFTAR LOGIC =====
+if (now < iftarToday) {
+  iftar.classList.remove("blink-iftar");
+  iftar.innerHTML = getCountdown(iftarToday, iftar);
+}
+else {
+  iftar.innerHTML = "Break Fast Now";
+  iftar.classList.remove("warning");
 
-      if (Date.now() - Number(iftar.dataset.blinkStart) < BLINK_DURATION) {
-        iftar.classList.add("blink-iftar");
-      } else {
-        iftar.classList.remove("blink-iftar");
-      }
-    }
+  if (!iftar.dataset.blinkStart) {
+    iftar.dataset.blinkStart = now.getTime();
+  }
+
+  if (now.getTime() - iftar.dataset.blinkStart < BLINK_DURATION) {
+    iftar.classList.add("blink-iftar");
+  } else {
+    iftar.classList.remove("blink-iftar");
+  }
+}
+
   }
 
   setInterval(updateTimers, 1000);
   updateTimers();
 }
 
-// ================= DUA TOGGLE =================
+
+// ================= START FUNCTIONS =================
+setInterval(updateClock, 1000);
+updateClock();
+startRamadanTimers();
+
 function toggleDua(id) {
   const sections = document.querySelectorAll('.dua-content');
 
   sections.forEach(section => {
-    if (section.id !== id) section.style.display = "none";
+    if (section.id !== id) {
+      section.style.display = "none";
+    }
   });
 
   const content = document.getElementById(id);
-  if (!content) return;
+  const isVisible = window.getComputedStyle(content).display === "block";
 
-  const visible = window.getComputedStyle(content).display === "block";
-  content.style.display = visible ? "none" : "block";
+  content.style.display = isVisible ? "none" : "block";
 }
 
-// ================= DHIKR COUNTER =================
+// ================= TASBEEH COUNTER =================
+// ================= TASBEEH COUNTER =================
+
+/// ================= DHIKR COUNTER =================
+
 let dhikrCount = 0;
 let generalCount = 0;
 
 function updateDhikr() {
   const name = document.getElementById("dhikrName");
   const display = document.getElementById("dhikrCount");
-  if (!name || !display) return;
 
   display.textContent = dhikrCount;
 
-  if (dhikrCount <= 33) name.textContent = "SubhanAllah";
-  else if (dhikrCount <= 66) name.textContent = "Alhamdulillah";
-  else name.textContent = "Allahu Akbar";
+  if (dhikrCount <= 33) {
+    name.textContent = "SubhanAllah";
+  } else if (dhikrCount <= 66) {
+    name.textContent = "Alhamdulillah";
+  } else {
+    name.textContent = "Allahu Akbar";
+  }
 
   if (dhikrCount >= 99) {
     dhikrCount = 0;
@@ -165,42 +193,29 @@ function resetDhikr() {
 }
 
 // ================= GENERAL COUNTER =================
+
 function increaseGeneral() {
   generalCount++;
-  const el = document.getElementById("generalCount");
-  if (el) el.textContent = generalCount;
+  document.getElementById("generalCount").textContent = generalCount;
 }
 
 function resetGeneral() {
   generalCount = 0;
-  const el = document.getElementById("generalCount");
-  if (el) el.textContent = generalCount;
+  document.getElementById("generalCount").textContent = generalCount;
 }
 
-// ===== MOBILE SAFE TAP HANDLER =====
-const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-const tapEvent = isTouchDevice ? "touchend" : "click";
-
-document.addEventListener(tapEvent, function(e) {
+// tap anywhere inside each counter
+document.addEventListener("click", function(e) {
 
   const dhikr = document.getElementById("dhikrApp");
   const general = document.getElementById("generalApp");
 
-  if (!dhikr || !general) return;
-
-  if (isTouchDevice) e.preventDefault();
-
-  if (dhikr.contains(e.target) && e.target.tagName !== "BUTTON") {
+  if (dhikr && dhikr.contains(e.target) && e.target.tagName !== "BUTTON") {
     increaseDhikr();
   }
 
-  if (general.contains(e.target) && e.target.tagName !== "BUTTON") {
+  if (general && general.contains(e.target) && e.target.tagName !== "BUTTON") {
     increaseGeneral();
   }
 
-}, { passive: false });
-
-// ================= START =================
-setInterval(updateClock, 1000);
-updateClock();
-startRamadanTimers();
+});
