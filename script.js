@@ -150,3 +150,10 @@ function toggleDua(id) {
 
   content.style.display = isVisible ? "none" : "block";
 }
+
+// enable offline caching
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then(() => console.log("Offline ready"))
+    .catch(() => console.log("Offline failed"));
+}
