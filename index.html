@@ -17,14 +17,19 @@
 </header>
 
 <nav>
-  <button onclick="showTab('home', this)">Home</button>
-<button onclick="showTab('prayer', this)">Prayer Timings</button>
-<button onclick="showTab('duas', this)">Duas</button>
-<button onclick="showTab('guide', this)">Ramadan Guide</button>
-<button onclick="showTab('location', this)">Location</button>
-<button onclick="showTab('gallery', this)">Gallery</button>
+  <button onclick="showTab('home')">Home</button>
+  <button onclick="showTab('prayer')">Prayer Timings</button>
+  <button onclick="showTab('duas')">Duas</button>
+  <button onclick="showTab('guide')">Ramadan Guide</button>
+  <button onclick="showTab('location')">Location</button>
+  <button onclick="showTab('gallery')">Gallery</button>
+  
 
 </nav>
+
+
+
+
 
 <section id="location" class="tab">
   <h2>📍 Masjid Location</h2>
@@ -166,8 +171,7 @@
 <!-- DUAS -->
 <!-- Ramadan Duas -->
 <section id="duas" class="tab">
-
-  <!-- Tasbeeh Counter -->
+<!-- Tasbeeh Counter -->
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('tasbeehCounters')">
     Tasbeeh Counters ▼
@@ -193,7 +197,7 @@
 
   </div>
 </div>
-
+   
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('ramadanDua')">
     Ramadan Duas ▼
@@ -360,9 +364,6 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
 
 
 
