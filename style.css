@@ -236,3 +236,46 @@ nav button.active-btn {
   color: white;
 }
 
+tasbeeh-section {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.counter-card {
+  background: blueviolet;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 220px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: 0.15s;
+}
+
+.counter-card:active {
+  transform: scale(0.96);
+}
+
+.counter-display {
+  font-size: 42px;
+  font-weight: bold;
+  color: black;
+  margin: 10px 0;
+}
+
+.counter-card button {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+.counter-note {
+  font-size: 13px;
+  color: black;
+  margin-top: 8px;
+}
