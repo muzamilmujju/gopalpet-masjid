@@ -149,4 +149,69 @@ function toggleDua(id) {
   const isVisible = window.getComputedStyle(content).display === "block";
 
   content.style.display = isVisible ? "none" : "block";
+
 }
+
+
+// ================= DHIKR COUNTER =================
+
+let dhikrCount = 0;
+let generalCount = 0;
+
+function updateDhikr() {
+  const name = document.getElementById("dhikrName");
+  const display = document.getElementById("dhikrCount");
+
+  display.textContent = dhikrCount;
+
+  if (dhikrCount <= 33) {
+    name.textContent = "SubhanAllah";
+  } else if (dhikrCount <= 66) {
+    name.textContent = "Alhamdulillah";
+  } else {
+    name.textContent = "Allahu Akbar";
+  }
+
+  if (dhikrCount >= 99) {
+    dhikrCount = 0;
+    updateDhikr();
+  }
+}
+
+function increaseDhikr() {
+  dhikrCount++;
+  updateDhikr();
+}
+
+function resetDhikr() {
+  dhikrCount = 0;
+  updateDhikr();
+}
+
+// ================= GENERAL COUNTER =================
+
+function increaseGeneral() {
+  generalCount++;
+  document.getElementById("generalCount").textContent = generalCount;
+}
+
+function resetGeneral() {
+  generalCount = 0;
+  document.getElementById("generalCount").textContent = generalCount;
+}
+
+// tap anywhere inside each counter
+document.addEventListener("click", function(e) {
+
+  const dhikr = document.getElementById("dhikrApp");
+  const general = document.getElementById("generalApp");
+
+  if (dhikr && dhikr.contains(e.target) && e.target.tagName !== "BUTTON") {
+    increaseDhikr();
+  }
+
+  if (general && general.contains(e.target) && e.target.tagName !== "BUTTON") {
+    increaseGeneral();
+  }
+
+});
