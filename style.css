@@ -198,45 +198,81 @@ footer {
 }
 
 
-.guide-title {
+.ramadan-guide {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.ramadan-guide h2 {
   text-align: center;
-  margin-bottom: 15px;
-  color: #0f5132;
+  margin-bottom: 20px;
+  color: yellow;
 }
 
-.guide-container {
-  display: grid;
-  gap: 12px;
+.guide-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
 }
 
-.guide-card {
-  background: black;
-  border-left: 5px solid #0f5132;
-  padding: 14px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: 0.3s;
+.guide-item:last-child {
+  border-bottom: none;
 }
 
-.guide-card:hover {
-  transform: translateY(-3px);
+.guide-item h3 {
+  margin: 0;
+  color:  green;
+  font-size: 18px;
 }
 
-.guide-card h3 {
-  margin: 6px 0;
-  color: #0f5132;
+.guide-item p {
+  margin: 6px 0 0;
+  color: white;
+  font-size: 15px;
 }
 
-.icon {
-  font-size: 22px;
-}
+
 
 nav button.active-btn {
   background: #0f5132;
   color: white;
 }
 
-tasbeeh-section {
+
+/* Tasbeeh Counter */
+
+.tasbeeh-container {
+  text-align: center;
+  margin-top: 25px;
+}
+
+#countDisplay {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #0a5c4a;
+}
+
+#tasbeehBtn {
+  padding: 14px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #0a5c4a;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Tasbeeh Counter */
+
+/* DIGITAL TASBEEH */
+
+/* Tasbeeh Counters */
+
+.tasbeeh-section {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
