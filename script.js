@@ -186,12 +186,18 @@ function toggleDua(id) {
     el.classList.toggle("show");
   }
 }
-// ================= TASBEEH COUNTERS =================
+
+// ================= TASBEEH COUNTER =================
 let dhikrCount = 0;
-let generalCount = 0;
 
 function incrementDhikr() {
   dhikrCount++;
+
+  // auto reset after 99
+  if (dhikrCount > 99) {
+    dhikrCount = 0;
+  }
+
   updateDhikrDisplay();
 }
 
@@ -204,14 +210,20 @@ function updateDhikrDisplay() {
   const name = document.getElementById("dhikrName");
   const display = document.getElementById("dhikrCount");
 
+  if (!display || !name) return;
+
   display.textContent = dhikrCount;
 
-  if (dhikrCount <= 33) name.textContent = "SubhanAllah";
-  else if (dhikrCount <= 66) name.textContent = "Alhamdulillah";
-  else if (dhikrCount <= 99) name.textContent = "Allahu Akbar";
-  else name.textContent = "Complete ✓";
+  if (dhikrCount === 0 || dhikrCount <= 33) {
+    name.textContent = "SubhanAllah";
+  }
+  else if (dhikrCount <= 66) {
+    name.textContent = "Alhamdulillah";
+  }
+  else {
+    name.textContent = "Allahu Akbar";
+  }
 }
-
 // ===== GENERAL COUNTER =====
 function incrementGeneral() {
   generalCount++;
