@@ -317,13 +317,6 @@ nav button.active-btn {
 }
 
 
-.dua-content {
-  display: none;
-}
-
-.dua-content.show {
-  display: block;
-}
 .tap-counter {
   cursor: pointer;
   user-select: none;
@@ -333,3 +326,4 @@ nav button.active-btn {
 .tap-counter:active {
   transform: scale(0.95);
 }
+
