@@ -178,6 +178,57 @@ function startRamadanTimers() {
   updateTimers();
 }
 
+
+// ================= TOGGLE DUA SECTIONS =================
+function toggleDua(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.toggle("show");
+  }
+}
+
+// ================= TASBEEH COUNTERS =================
+let dhikrCount = 0;
+let generalCount = 0;
+
+function incrementDhikr() {
+  dhikrCount++;
+  updateDhikrDisplay();
+}
+
+function resetDhikr() {
+  dhikrCount = 0;
+  updateDhikrDisplay();
+}
+
+function updateDhikrDisplay() {
+  const name = document.getElementById("dhikrName");
+  const display = document.getElementById("dhikrCount");
+
+  if (!display || !name) return;
+
+  display.textContent = dhikrCount;
+
+  if (dhikrCount <= 33) name.textContent = "SubhanAllah";
+  else if (dhikrCount <= 66) name.textContent = "Alhamdulillah";
+  else if (dhikrCount <= 99) name.textContent = "Allahu Akbar";
+  else name.textContent = "Complete ✓";
+}
+
+// ===== GENERAL COUNTER =====
+function incrementGeneral() {
+  generalCount++;
+  document.getElementById("generalCount").textContent = generalCount;
+}
+
+function resetGeneral() {
+  generalCount = 0;
+  document.getElementById("generalCount").textContent = generalCount;
+}
+
+
+
+
 // ================= START AFTER LOAD =================
 document.addEventListener("DOMContentLoaded", () => {
   startRamadanTimers();
