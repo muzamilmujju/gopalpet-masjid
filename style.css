@@ -315,3 +315,12 @@ nav button.active-btn {
   color: black;
   margin-top: 8px;
 }
+
+
+.dua-content {
+  display: none;
+}
+
+.dua-content.show {
+  display: block;
+}
