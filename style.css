@@ -324,3 +324,12 @@ nav button.active-btn {
 .dua-content.show {
   display: block;
 }
+.tap-counter {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s ease;
+}
+
+.tap-counter:active {
+  transform: scale(0.95);
+}
