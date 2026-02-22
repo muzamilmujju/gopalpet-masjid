@@ -17,12 +17,14 @@
 </header>
 
 <nav>
-  <button onclick="showTab('home', this)">Home</button>
-  <button onclick="showTab('prayer', this)">Prayer Timings</button>
-  <button onclick="showTab('duas', this)">Duas</button>
-  <button onclick="showTab('guide', this)">Ramadan Guide</button>
-  <button onclick="showTab('location', this)">Location</button>
-  <button onclick="showTab('gallery', this)">Gallery</button>
+  <button onclick="showTab('home')">Home</button>
+  <button onclick="showTab('prayer')">Prayer Timings</button>
+  <button onclick="showTab('duas')">Duas</button>
+  <button onclick="showTab('guide')">Ramadan Guide</button>
+  <button onclick="showTab('location')">Location</button>
+  <button onclick="showTab('gallery')">Gallery</button>
+  
+
 </nav>
 
 
@@ -112,7 +114,7 @@
     </tr>
     <tr>
       <td>Maghrib</td>
-      <td>6:28 PM</td>
+      <td>6:25 PM</td>
       <td>6:30 PM</td>
     </tr>
     <tr>
@@ -150,6 +152,8 @@
   </tr>
 </table>
 
+
+
 <h3>🌙 Taraweeh Prayer</h3>
 <table>
   <tr>
@@ -172,6 +176,7 @@
 <!-- Ramadan Duas -->
 <section id="duas" class="tab">
 <!-- Tasbeeh Counter -->
+<!-- Tasbeeh Counter -->
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('tasbeehCounters')">
     Tasbeeh Counters ▼
@@ -182,36 +187,28 @@
     <!-- Dhikr Counter -->
     <div class="counter-card">
       <h3 id="dhikrName">SubhanAllah</h3>
+      <div class="counter-display" id="dhikrCount">0</div>
 
-      <!-- TAP AREA -->
-      <div class="counter-display tap-counter"
-           id="dhikrCount"
-           onclick="incrementDhikr()">
-        0
-      </div>
-
+      <button onclick="incrementDhikr()">Count</button>
       <button onclick="resetDhikr()">Reset</button>
-      <p class="counter-note">Tap number to count</p>
+
+      <p class="counter-note">Auto cycle: 33 → 99</p>
     </div>
 
     <!-- General Counter -->
     <div class="counter-card">
       <h3>General Tasbeeh</h3>
+      <div class="counter-display" id="generalCount">0</div>
 
-      <div class="counter-display tap-counter"
-           id="generalCount"
-           onclick="incrementGeneral()">
-        0
-      </div>
-
+      <button onclick="incrementGeneral()">Count</button>
       <button onclick="resetGeneral()">Reset</button>
-      <p class="counter-note">Tap number to count</p>
+
+      <p class="counter-note">Use for any zikr</p>
     </div>
 
   </div>
 </div>
-
-  
+   
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('ramadanDua')">
     Ramadan Duas ▼
@@ -378,10 +375,6 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
 
 
 
