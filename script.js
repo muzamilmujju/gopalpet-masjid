@@ -179,14 +179,13 @@ function startRamadanTimers() {
 }
 
 
-// ================= TOGGLE DUA SECTIONS =================
+
 function toggleDua(id) {
   const el = document.getElementById(id);
   if (el) {
     el.classList.toggle("show");
   }
 }
-
 // ================= TASBEEH COUNTERS =================
 let dhikrCount = 0;
 let generalCount = 0;
@@ -204,8 +203,6 @@ function resetDhikr() {
 function updateDhikrDisplay() {
   const name = document.getElementById("dhikrName");
   const display = document.getElementById("dhikrCount");
-
-  if (!display || !name) return;
 
   display.textContent = dhikrCount;
 
@@ -225,7 +222,6 @@ function resetGeneral() {
   generalCount = 0;
   document.getElementById("generalCount").textContent = generalCount;
 }
-
 
 
 
