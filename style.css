@@ -1,3 +1,4 @@
+/* ================= BASE ================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -11,34 +12,51 @@ header {
   padding: 20px;
 }
 
+/* ================= NAVIGATION ================= */
 nav {
   background: #0f3057;
   padding: 10px;
 }
 
+/* GOLD TABS (ALL DEVICES) */
 nav button {
-  background: gold;
+  background-color: gold;
+  color: black;
   border: none;
   padding: 10px 15px;
   margin: 5px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+
+  /* mobile fix */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 nav button:hover {
   background: #ffd700;
 }
 
+/* ACTIVE TAB */
+nav button.active-btn {
+  background: #0f5132 !important;
+  color: white;
+}
+
+/* ================= TABS ================= */
 .tab {
   display: none;
   padding: 20px;
 }
 
-.active {
+.tab.active {
   display: block;
 }
 
+/* ================= TABLES ================= */
 table {
   margin: auto;
   border-collapse: collapse;
@@ -57,15 +75,7 @@ th {
   color: white;
 }
 
-.dua-list {
-  text-align: left;
-  max-width: 600px;
-  margin: auto;
-}
-
-.dua-list li {
-  margin: 8px 0;
-}
+/* ================= MAP BUTTON ================= */
 .map-btn {
   display: inline-block;
   background: gold;
@@ -80,6 +90,7 @@ th {
   background: #ffd700;
 }
 
+/* ================= GALLERY ================= */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -88,9 +99,9 @@ th {
 }
 
 .gallery img {
-  width: 220px;        /* controls size */
-  height: 160px;       /* uniform height */
-  object-fit: cover;   /* prevents stretching */
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
   border-radius: 8px;
 }
 
@@ -99,8 +110,7 @@ th {
   transition: 0.3s;
 }
 
-
-
+/* ================= FOOTER ================= */
 footer {
   background: #0f3057;
   padding: 15px;
@@ -109,7 +119,7 @@ footer {
   color: #ddd;
 }
 
-
+/* ================= CLOCK ================= */
 #clock {
   font-size: 22px;
   color: gold;
@@ -117,6 +127,7 @@ footer {
   font-weight: bold;
 }
 
+/* ================= FASTING TABLE ================= */
 .fasting-table {
   width: 90%;
   max-width: 600px;
@@ -137,28 +148,21 @@ footer {
   font-weight: bold;
 }
 
-.fasting-table tr:nth-child(2) {
-  background: #fff3cd;
-}
+.fasting-table tr:nth-child(2) { background: #fff3cd; }
+.fasting-table tr:nth-child(3) { background: #e8f5e9; }
 
-.fasting-table tr:nth-child(3) {
-  background: #e8f5e9;
-}
-
-/* Warning (last seconds) */
+/* ================= WARNINGS & BLINK ================= */
 .warning {
   color: red;
   font-weight: bold;
 }
 
-/* Sehri blink (RED) */
 .blink-sehri {
   animation: blinkAnim 1s infinite;
   color: red;
   font-weight: bold;
 }
 
-/* Iftar blink (GREEN) */
 .blink-iftar {
   animation: blinkAnim 1s infinite;
   color: green;
@@ -169,7 +173,7 @@ footer {
   50% { opacity: 0; }
 }
 
-
+/* ================= DUA SECTIONS ================= */
 .dua-box {
   margin-bottom: 12px;
 }
@@ -178,106 +182,36 @@ footer {
   width: 100%;
   padding: 10px;
   background: #0f5132;
-  color: white; /* better contrast */
+  color: white;
   border: none;
   text-align: left;
   font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
-  touch-action: manipulation;
 }
 
 .dua-content {
   display: none;
-  background: #000; /* black background */
-  color: #fff; /* text visible on black */
+  background: #000;
+  color: #fff;
   padding: 12px;
   border-radius: 6px;
   margin-top: 5px;
   line-height: 1.6;
 }
 
-
-.ramadan-guide {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+/* SHOW WHEN TOGGLED */
+.dua-content.show {
+  display: block;
 }
 
-.ramadan-guide h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: yellow;
-}
-
-.guide-item {
-  padding: 12px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.guide-item:last-child {
-  border-bottom: none;
-}
-
-.guide-item h3 {
-  margin: 0;
-  color:  green;
-  font-size: 18px;
-}
-
-.guide-item p {
-  margin: 6px 0 0;
-  color: white;
-  font-size: 15px;
-}
-
-
-
-nav button.active-btn {
-  background: #0f5132;
-  color: white;
-}
-
-
-/* Tasbeeh Counter */
-
-.tasbeeh-container {
-  text-align: center;
-  margin-top: 25px;
-}
-
-#countDisplay {
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #0a5c4a;
-}
-
-#tasbeehBtn {
-  padding: 14px 30px;
-  font-size: 18px;
-  border: none;
-  border-radius: 8px;
-  background: #0a5c4a;
-  color: white;
-  cursor: pointer;
-  margin: 10px;
-}
-
-/* Tasbeeh Counter */
-
-/* DIGITAL TASBEEH */
-
-/* Tasbeeh Counters */
-
+/* ================= TASBEEH COUNTERS ================= */
 .tasbeeh-section {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
   margin-top: 15px;
+  align-items: center;
 }
 
 .counter-card {
@@ -286,7 +220,6 @@ nav button.active-btn {
   border-radius: 10px;
   text-align: center;
   width: 220px;
-  cursor: pointer;
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
   transition: 0.15s;
 }
@@ -300,6 +233,8 @@ nav button.active-btn {
   font-weight: bold;
   color: black;
   margin: 10px 0;
+  cursor: pointer;
+  user-select: none;
 }
 
 .counter-card button {
@@ -315,13 +250,3 @@ nav button.active-btn {
   color: black;
   margin-top: 8px;
 }
-
-.dua-content {
-  display: none;
-}
-
-.dua-content.show {
-  display: block;
-}
-
-
