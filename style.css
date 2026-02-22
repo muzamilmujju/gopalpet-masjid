@@ -327,3 +327,10 @@ nav button.active-btn {
   transform: scale(0.95);
 }
 
+/* space between tasbeeh cards */
+.tasbeeh-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;   /* adjust spacing here */
+}
+
