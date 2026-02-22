@@ -114,7 +114,7 @@
     </tr>
     <tr>
       <td>Maghrib</td>
-      <td>6:25 PM</td>
+      <td>6:28 PM</td>
       <td>6:30 PM</td>
     </tr>
     <tr>
@@ -140,19 +140,15 @@
   </tr>
   <tr>
     <td>Sehri Ends</td>
-    <!-- time will auto update -->
-    <td id="sehriTime">--</td>
+    <td>5:18AM</td>
     <td id="sehriTimer">--</td>
   </tr>
   <tr>
     <td>Iftar Time</td>
-    <!-- time will auto update -->
-    <td id="iftarTime">--</td>
+    <td>6:26PM</td>
     <td id="iftarTimer">--</td>
   </tr>
 </table>
-
-
 
 <h3>🌙 Taraweeh Prayer</h3>
 <table>
@@ -176,7 +172,6 @@
 <!-- Ramadan Duas -->
 <section id="duas" class="tab">
 <!-- Tasbeeh Counter -->
-<!-- Tasbeeh Counter -->
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('tasbeehCounters')">
     Tasbeeh Counters ▼
@@ -185,24 +180,18 @@
   <div id="tasbeehCounters" class="dua-content tasbeeh-section">
 
     <!-- Dhikr Counter -->
-    <div class="counter-card">
+    <div class="counter-card" id="dhikrApp">
       <h3 id="dhikrName">SubhanAllah</h3>
       <div class="counter-display" id="dhikrCount">0</div>
-
-      <button onclick="incrementDhikr()">Count</button>
       <button onclick="resetDhikr()">Reset</button>
-
       <p class="counter-note">Auto cycle: 33 → 99</p>
     </div>
 
     <!-- General Counter -->
-    <div class="counter-card">
+    <div class="counter-card" id="generalApp">
       <h3>General Tasbeeh</h3>
       <div class="counter-display" id="generalCount">0</div>
-
-      <button onclick="incrementGeneral()">Count</button>
       <button onclick="resetGeneral()">Reset</button>
-
       <p class="counter-note">Use for any zikr</p>
     </div>
 
@@ -375,7 +364,6 @@
 <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
