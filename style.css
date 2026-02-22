@@ -196,9 +196,7 @@ footer {
   margin-top: 5px;
   line-height: 1.6;
 }
-.dua-content.show {
-  display: block;
-}
+
 
 .ramadan-guide {
   max-width: 700px;
@@ -318,41 +316,12 @@ nav button.active-btn {
   margin-top: 8px;
 }
 
-
-.tap-counter {
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.1s ease;
+.dua-content {
+  display: none;
 }
 
-.tap-counter:active {
-  transform: scale(0.95);
-}
-
-/* space between tasbeeh cards */
-.tasbeeh-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;   /* adjust spacing here */
-}
-
-nav button {
-  background: #eee;
-  border: none;
-  padding: 10px 14px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-nav button:hover {
-  background: #ddd;
-}
-
-nav button.active-btn {
-  background: #2e7d32;
-  color: #fff;
+.dua-content.show {
+  display: block;
 }
 
 
