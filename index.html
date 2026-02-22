@@ -182,24 +182,29 @@
   <div id="tasbeehCounters" class="dua-content tasbeeh-section">
 
     <!-- Dhikr Counter -->
-    <div class="counter-card" id="dhikrApp">
+    <div class="counter-card">
       <h3 id="dhikrName">SubhanAllah</h3>
       <div class="counter-display" id="dhikrCount">0</div>
+
+      <button onclick="incrementDhikr()">Count</button>
       <button onclick="resetDhikr()">Reset</button>
+
       <p class="counter-note">Auto cycle: 33 → 99</p>
     </div>
 
     <!-- General Counter -->
-    <div class="counter-card" id="generalApp">
+    <div class="counter-card">
       <h3>General Tasbeeh</h3>
       <div class="counter-display" id="generalCount">0</div>
+
+      <button onclick="incrementGeneral()">Count</button>
       <button onclick="resetGeneral()">Reset</button>
+
       <p class="counter-note">Use for any zikr</p>
     </div>
 
   </div>
 </div>
-   
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('ramadanDua')">
     Ramadan Duas ▼
@@ -366,6 +371,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
