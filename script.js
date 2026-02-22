@@ -180,6 +180,8 @@ function startRamadanTimers() {
 
 
 
+
+// ================= TOGGLE DUA SECTIONS =================
 function toggleDua(id) {
   const el = document.getElementById(id);
   if (el) {
@@ -187,17 +189,12 @@ function toggleDua(id) {
   }
 }
 
-// ================= TASBEEH COUNTER =================
+// ================= TASBEEH COUNTERS =================
 let dhikrCount = 0;
+let generalCount = 0;
 
 function incrementDhikr() {
   dhikrCount++;
-
-  // auto reset after 99
-  if (dhikrCount > 99) {
-    dhikrCount = 0;
-  }
-
   updateDhikrDisplay();
 }
 
@@ -214,16 +211,12 @@ function updateDhikrDisplay() {
 
   display.textContent = dhikrCount;
 
-  if (dhikrCount === 0 || dhikrCount <= 33) {
-    name.textContent = "SubhanAllah";
-  }
-  else if (dhikrCount <= 66) {
-    name.textContent = "Alhamdulillah";
-  }
-  else {
-    name.textContent = "Allahu Akbar";
-  }
+  if (dhikrCount <= 33) name.textContent = "SubhanAllah";
+  else if (dhikrCount <= 66) name.textContent = "Alhamdulillah";
+  else if (dhikrCount <= 99) name.textContent = "Allahu Akbar";
+  else name.textContent = "Complete ✓";
 }
+
 // ===== GENERAL COUNTER =====
 function incrementGeneral() {
   generalCount++;
@@ -237,9 +230,17 @@ function resetGeneral() {
 
 
 
+
+
+
+
+
 // ================= START AFTER LOAD =================
 document.addEventListener("DOMContentLoaded", () => {
   startRamadanTimers();
   setInterval(updateClock, 1000);
   updateClock();
 });
+
+
+
