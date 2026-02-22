@@ -334,3 +334,22 @@ nav button.active-btn {
   gap: 20px;   /* adjust spacing here */
 }
 
+nav button {
+  background: #eee;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background: #ddd;
+}
+
+nav button.active-btn {
+  background: #2e7d32;
+  color: #fff;
+}
+
