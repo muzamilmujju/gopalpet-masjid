@@ -25,57 +25,64 @@ header p {
   opacity: 0.9;
 }
 
-/* ================= NAVIGATION ================= */
-/* ================= NAVIGATION (PRO LEVEL) ================= */
+//* ================= NAVIGATION (FINAL CLEAN) ================= */
 nav {
-  background: #0b3d2e; /* deep green */
-  padding: 8px;
+  background: #0b3d2e;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-  border-bottom: 3px solid #d4af37; /* gold accent */
+  align-items: center;
+  gap: 10px;
+  border-bottom: 3px solid #d4af37;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
+/* BUTTON STYLE */
 nav button {
   background: transparent;
-  color: #e6f2ef;
+  color: black;
   border: none;
-  padding: 10px 16px;
-  margin: 3px;
+  padding: 10px 18px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   border-radius: 6px;
   position: relative;
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 nav button:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  background: white;
+  color: black;
 }
 
-/* ACTIVE TAB (IMPORTANT 🔥) */
+/* ACTIVE TAB ✅ */
 nav button.active-btn {
-  background: #ffffff;
-  color: #0b3d2e;
+  background: #d4af37;   /* 🔥 gold highlight */
+  color: #0b3d2e;        /* dark text */
   font-weight: 600;
 }
 
-/* GOLD UNDERLINE FOR ACTIVE */
-nav button.active-btn::after {
+/* UNDERLINE EFFECT */
+nav button::after {
   content: "";
   position: absolute;
-  bottom: -6px;
-  left: 10%;
-  width: 80%;
-  height: 3px;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
   background: #d4af37;
-  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
-/* SMOOTH CLICK EFFECT */
+nav button:hover::after,
+nav button.active-btn::after {
+  width: 100%;
+}
+
+/* CLICK EFFECT */
 nav button:active {
   transform: scale(0.96);
 }
@@ -88,6 +95,7 @@ nav button:active {
 
 .tab.active {
   display: block;
+  
 }
 
 /* ================= TABLES ================= */
