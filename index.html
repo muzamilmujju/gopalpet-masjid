@@ -6,174 +6,89 @@
   <title>Gopalpet Masjid</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="icon.png">
-  <link rel="apple-touch-icon" href="icon.png">
-
 </head>
+
 <body>
 
-<header>
-  <h1>🕌 Gopalpet Masjid 🕌</h1>
-  <p>Welcome to Gopalpet Masjid</p>
+<!-- HEADER -->
+<header class="header">
+  <h1>Gopalpet Masjid</h1>
+  <p>Serving the community with faith and unity</p>
 </header>
 
-<nav>
+<!-- NAVBAR -->
+<nav class="navbar">
   <button onclick="showTab('home')">Home</button>
   <button onclick="showTab('prayer')">Prayer Timings</button>
   <button onclick="showTab('duas')">Duas</button>
-  <button onclick="showTab('guide')">Ramadan Guide</button>
-  <button onclick="showTab('location')">Location</button>
+  <button onclick="showTab('announcements')">Announcements</button>
+  <button onclick="showTab('services')">Services</button>
   <button onclick="showTab('gallery')">Gallery</button>
-  
-
+  <button onclick="showTab('location')">Location</button>
 </nav>
-
-
-
-
-
-<section id="location" class="tab">
-  <h2>📍 Masjid Location</h2>
-
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.5482385012233!2d78.1434093!3d16.396959799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bca11007fc93c65%3A0xe4d41fb6372b6f6b!2sJamia%20masjid%20gopalpeta!5e0!3m2!1sen!2sin!4v1771311045059!5m2!1sen!2sin"
-    width="100%"
-    height="320"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-
-  <br><br>
-
-  <a href="https://maps.app.goo.gl/SfXpAiyHqHBge3xQA" target="_blank" class="map-btn">
-    Open in Google Maps
-  </a>
-
-</section>
-
 
 <!-- HOME -->
 <section id="home" class="tab active">
-  <h2>Assalamu Alaikum 🤍</h2>
+  <h2>Assalamu Alaikum</h2>
   <p>
-    This website provides prayer timings, Ramadan duas, and guidance
-    for our community. May Allah bless everyone and strengthen our unity.
+    Welcome to Gopalpet Masjid. This website provides daily prayer timings,
+    duas, and important updates for our community. May Allah bless everyone.
+
+   <!-- HIJRI DATE -->
+<div class="card">
+  <h3>Hijri Date</h3>
+  <p id="hijriDate">Loading...</p>
+</div>
+
   </p>
-
-  <h3>📢 Important Announcement</h3>
-
-<table class="announcement-table">
-  <tr>
-    <th>Notice</th>
-  </tr>
-
-  <tr>
-    <td>
-      🌙 <strong>Ramadan Mubarak!</strong><br><br>
-
-      🤲 May Allah accept our fasting, prayers, and duas.<br>
-      May this Ramadan bring peace, mercy, and blessings to everyone.
-    </td>
-  </tr>
-</table>
-
-
-
-
 </section>
 
+<!-- ANNOUNCEMENTS -->
+<section id="announcements" class="tab">
+  <h2>Announcements</h2>
 
+  <div class="card">
+    <p>Jumu'ah Prayer at 1:40 PM</p>
+  </div>
+
+  <div class="card">
+    <p>Weekly Islamic Lecture every Friday after Maghrib</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="tab">
+  <h2>Masjid Services</h2>
+
+  <div class="card">Daily Prayers (5 Times)</div>
+  <div class="card">Jumu'ah Prayer</div>
+  <div class="card">Islamic Education</div>
+  <div class="card">Community Support</div>
+</section>
 
 <!-- PRAYER TIMES -->
-
-
-
 <section id="prayer" class="tab">
   <h3 id="clock"></h3>
-  <h2>🕌 Daily Prayer Timings</h2>
+  <h2>Daily Prayer Timings</h2>
+
   <table>
     <tr>
-      <th>Namaz</th>
+      <th>Prayer</th>
       <th>Azaan</th>
       <th>Jamaat</th>
     </tr>
-    <tr>
-      <td>Fajar</td>
-      <td>5:25 AM</td>
-      <td>5:45 AM</td>
-    </tr>
-    <tr>
-      <td>Zohar</td>
-      <td>1:15 PM</td>
-      <td>1:30 PM</td>
-    </tr>
-    <tr>
-      <td>Asar</td>
-      <td>4:55 PM</td>
-      <td>5:10 PM</td>
-    </tr>
-    <tr>
-      <td>Maghrib</td>
-      <td>6:30 PM</td>
-      <td>6:32 PM</td>
-    </tr>
-    <tr>
-      <td>Isha</td>
-      <td>8:00 PM</td>
-      <td>8:30 PM</td>
-    </tr>
-     <tr>
-      <td>Juma</td>
-      <td>12:30 PM</td>
-      <td>1:40 PM</td>
-    </tr>
-     
-
+    <tr><td>Fajr</td><td>5:15 AM</td><td>5:35 AM</td></tr>
+    <tr><td>Dhuhr</td><td>1:15 PM</td><td>1:30 PM</td></tr>
+    <tr><td>Asr</td><td>4:55 PM</td><td>5:10 PM</td></tr>
+    <tr><td>Maghrib</td><td>6:28 PM</td><td>6:30 PM</td></tr>
+    <tr><td>Isha</td><td>8:00 PM</td><td>8:30 PM</td></tr>
+    <tr><td>Jumu'ah</td><td>12:30 PM</td><td>1:40 PM</td></tr>
   </table>
- <h3>🌙 Ramadan Fasting Times</h3>
-
-<table class="fasting-table">
-  <tr>
-    <th>Event</th>
-    <th>Time</th>
-    <th>Countdown</th>
-  </tr>
-  <tr>
-    <td>Sehri Ends</td>
-    <!-- time will auto update -->
-    <td id="sehriTime">--</td>
-    <td id="sehriTimer">--</td>
-  </tr>
-  <tr>
-    <td>Iftar Time</td>
-    <!-- time will auto update -->
-    <td id="iftarTime">--</td>
-    <td id="iftarTimer">--</td>
-  </tr>
-</table>
-
-<h3>🌙 Taraweeh Prayer</h3>
-<table>
-  <tr>
-    <th>Prayer</th>
-    <th>Time</th>
-  </tr>
-  <tr>
-    <td>Isha Jamaat</td>
-    <td>8:30 PM</td>
-  </tr>
-  <tr>
-    <td>Taraweeh Start</td>
-    <td> 8:45 PM</td>
-  </tr>
-</table>
-
 </section>
 
-<!-- DUAS -->
-<!-- Ramadan Duas -->
+<!-- DUAS (UNCHANGED CONTENT) -->
 <section id="duas" class="tab">
-<!-- Tasbeeh Counter -->
+
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('tasbeehCounters')">
     Tasbeeh Counters ▼
@@ -181,7 +96,6 @@
 
   <div id="tasbeehCounters" class="dua-content tasbeeh-section">
 
-    <!-- Dhikr Counter -->
     <div class="counter-card" id="dhikrApp">
       <h3 id="dhikrName">SubhanAllah</h3>
       <div class="counter-display" id="dhikrCount">0</div>
@@ -189,7 +103,6 @@
       <p class="counter-note">Auto cycle: 33 → 99</p>
     </div>
 
-    <!-- General Counter -->
     <div class="counter-card" id="generalApp">
       <h3>General Tasbeeh</h3>
       <div class="counter-display" id="generalCount">0</div>
@@ -199,62 +112,47 @@
 
   </div>
 </div>
-   
+
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('ramadanDua')">
-    Ramadan Duas ▼
+    Duas ▼
   </button>
   <div id="ramadanDua" class="dua-content">
     <ul>
-  <li>Astaghfirullah</li>
-  <li>Allahumma innaka afuwwun tuhibbul afwa fa’fu anni</li>
-  <li>Rabbi ighfir li wa tub ‘alayya</li>
-  <li>Allahummaghfir li dhanbi kullahu</li>
-  <li>Allahumma taqabbal minna siyamana wa qiyamana</li>
-  <li>Allahumma taqabbal minna innaka antas-sami‘ul ‘aleem</li>
-  <li>Allahumma inni laka sumtu</li>
-  <li>Allahumma inni laka sumtu wa bika aamantu</li>
-  <li>Allahumma inni as’aluka al-jannah</li>
-  <li>Wa a’udhu bika minan-naar</li>
-  <li>Allahumma ajirni minan-naar</li>
-  <li>Allahumma ihdini siratal mustaqeem</li>
-  <li>Allahumma thabbit qalbi ala deenik</li>
-  <li>Allahumma zidna imanan</li>
-  <li>Allahumma barik lana fima razaqtana</li>
-  <li>Allahumma inni as’aluka rizqan tayyiban</li>
-  <li>Allahumma la sahla illa ma ja‘altahu sahla</li>
-  <li>Rabbi yassir wa la tu’assir</li>
-  <li>Allahumma inni as’aluka al-‘afiyah</li>
-  <li>Allahumma ishfi maradana</li>
-  <li>Allahumma a’inni ala dhikrika wa shukrika</li>
-  <li>Allahumma ij’alni minas-sabireen</li>
-  <li>Rabbir hamhuma kama rabbayani sagheera</li>
-  <li>Allahumma ihfaz ahli wa awladi</li>
-  <li>Rabbi zidni ilma</li>
-  <li>Allahumma inni as’aluka husnal khatimah</li>
-  <li>Allahumma barik lana fi awqatina</li>
-  <li>Allahumma ij’al qalbi nooran</li>
-  <li>Allahumma aslih li sha’ni kullah</li>
-  <li>Allahumma ij’alna min al-muttaqeen</li>
-</ul>
+      <li>Astaghfirullah</li>
+      <li>Allahumma innaka afuwwun tuhibbul afwa fa’fu anni</li>
+      <li>Rabbi ighfir li wa tub ‘alayya</li>
+      <li>Allahummaghfir li dhanbi kullahu</li>
+      <li>Allahumma taqabbal minna siyamana wa qiyamana</li>
+      <li>Allahumma taqabbal minna innaka antas-sami‘ul ‘aleem</li>
+      <li>Allahumma inni laka sumtu</li>
+      <li>Allahumma inni laka sumtu wa bika aamantu</li>
+      <li>Allahumma inni as’aluka al-jannah</li>
+      <li>Wa a’udhu bika minan-naar</li>
+      <li>Allahumma ajirni minan-naar</li>
+      <li>Allahumma ihdini siratal mustaqeem</li>
+      <li>Allahumma thabbit qalbi ala deenik</li>
+      <li>Allahumma zidna imanan</li>
+      <li>Allahumma barik lana fima razaqtana</li>
+      <li>Allahumma inni as’aluka rizqan tayyiban</li>
+      <li>Allahumma la sahla illa ma ja‘altahu sahla</li>
+      <li>Rabbi yassir wa la tu’assir</li>
+      <li>Allahumma inni as’aluka al-‘afiyah</li>
+      <li>Allahumma ishfi maradana</li>
+      <li>Allahumma a’inni ala dhikrika wa shukrika</li>
+      <li>Allahumma ij’alni minas-sabireen</li>
+      <li>Rabbir hamhuma kama rabbayani sagheera</li>
+      <li>Allahumma ihfaz ahli wa awladi</li>
+      <li>Rabbi zidni ilma</li>
+      <li>Allahumma inni as’aluka husnal khatimah</li>
+      <li>Allahumma barik lana fi awqatina</li>
+      <li>Allahumma ij’al qalbi nooran</li>
+      <li>Allahumma aslih li sha’ni kullah</li>
+      <li>Allahumma ij’alna min al-muttaqeen</li>
+    </ul>
   </div>
 </div>
 
-<!-- Sehri & Iftar -->
-<div class="dua-box">
-  <button type="button" class="dua-btn" onclick="toggleDua('fastingDua')">
-    Sehri & Iftar Duas ▼
-  </button>
-  <div id="fastingDua" class="dua-content">
-    <p><strong>Sehri Niyyah:</strong><br>
-    Nawaitu an asuma ghadal lillahi ta'ala min fardi Ramadan</p>
-
-    <p><strong>Iftar Dua:</strong><br>
-    Allahumma laka sumtu wa bika aamantu wa ‘ala rizqika aftartu</p>
-  </div>
-</div>
-
-<!-- Morning & Evening -->
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('morningDua')">
     Morning & Evening Duas ▼
@@ -265,7 +163,6 @@
   </div>
 </div>
 
-<!-- Surah Al-Qadr -->
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('qadrSurah')">
     Surah Al-Qadr ▼
@@ -279,7 +176,6 @@
   </div>
 </div>
 
-<!-- Ayatul Kursi -->
 <div class="dua-box">
   <button type="button" class="dua-btn" onclick="toggleDua('kursiSurah')">
     Ayatul Kursi ▼
@@ -298,54 +194,10 @@
 </div>
 
 </section>
-<!-- GUIDE -->
-<section id="guide" class="tab">
-  <h2 class="guide-title">🌙 Ramadan Routine for Youth</h2>
 
-  <div class="guide-container">
-
-    <div class="guide-card">
-      <div class="icon">🌅</div>
-      <h3>Suhoor & Fajr</h3>
-      <p>Wake early & eat healthy</p>
-      <p>Pray Fajr & read Qur’an</p>
-    </div>
-
-    <div class="guide-card">
-      <div class="icon">☀</div>
-      <h3>Daytime</h3>
-      <p>Study & work with focus</p>
-      <p>Avoid gossip & bad habits</p>
-    </div>
-
-    <div class="guide-card">
-      <div class="icon">🤲</div>
-      <h3>Before Iftar</h3>
-      <p>Make sincere dua</p>
-      <p>Help at home or masjid</p>
-    </div>
-
-    <div class="guide-card">
-      <div class="icon">🌙</div>
-      <h3>Iftar</h3>
-      <p>Break fast with dates & water</p>
-      <p>Eat moderately</p>
-    </div>
-
-    <div class="guide-card">
-      <div class="icon">🕌</div>
-      <h3>Night</h3>
-      <p>Pray Taraweeh</p>
-      <p>Spend time in masjid</p>
-      <p>Sleep early</p>
-    </div>
-
-  </div>
-</section>
-
-  
+<!-- GALLERY -->
 <section id="gallery" class="tab">
-  <h2>🕌 Masjid Gallery</h2>
+  <h2>Masjid Gallery</h2>
 
   <div class="gallery">
     <img src="masjidphoto1.jpeg" alt="Masjid View">
@@ -354,23 +206,29 @@
   </div>
 </section>
 
+<!-- LOCATION -->
+<section id="location" class="tab">
+  <h2>Masjid Location</h2>
 
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.5482385012233!2d78.1434093!3d16.396959799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bca11007fc93c65%3A0xe4d41fb6372b6f6b!2sJamia%20masjid%20gopalpeta!5e0!3m2!1sen!2sin!4v1771311045059!5m2!1sen!2sin"
+    width="100%" height="320" style="border:0;" allowfullscreen loading="lazy">
+  </iframe>
+
+  <br><br>
+
+  <a href="https://maps.app.goo.gl/SfXpAiyHqHBge3xQA" target="_blank">
+    Open in Google Maps
+  </a>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <p>© 2026 Gopalpet Masjid</p>
   <p>Managed by Masjid Youth Committee</p>
-  <p>Website developed for community service 🤍</p>
 </footer>
-<p>Note : For updates or corrections regarding masjid information, please contact the Youth Committee.</p>
-
 
 <script src="script.js"></script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
