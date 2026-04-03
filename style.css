@@ -1,75 +1,133 @@
+/* ================= BASE ================= */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b1d3a;
-  color: white;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f7f6;
+  color: #222;
   text-align: center;
 }
 
+/* ================= HEADER ================= */
 header {
-  background: #142850;
-  padding: 20px;
+  background: #0b5d3b;
+  color: white;
+  padding: 25px 15px;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ================= NAVIGATION ================= */
+/* ================= NAVIGATION (PRO LEVEL) ================= */
 nav {
-  background: #0f3057;
-  padding: 10px;
+  background: #0b3d2e; /* deep green */
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 3px solid #d4af37; /* gold accent */
 }
 
 nav button {
-  background: gold;
+  background: transparent;
+  color: #e6f2ef;
   border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  font-weight: bold;
+  padding: 10px 16px;
+  margin: 3px;
   cursor: pointer;
-  border-radius: 5px;
+  font-size: 14px;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.25s ease;
 }
 
+/* HOVER EFFECT */
 nav button:hover {
-  background: #ffd700;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
+/* ACTIVE TAB (IMPORTANT 🔥) */
+nav button.active-btn {
+  background: #ffffff;
+  color: #0b3d2e;
+  font-weight: 600;
+}
+
+/* GOLD UNDERLINE FOR ACTIVE */
+nav button.active-btn::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: #d4af37;
+  border-radius: 2px;
+}
+
+/* SMOOTH CLICK EFFECT */
+nav button:active {
+  transform: scale(0.96);
+}
+
+/* ================= TABS ================= */
 .tab {
   display: none;
   padding: 20px;
 }
 
-.active {
+.tab.active {
   display: block;
 }
 
+/* ================= TABLES ================= */
 table {
-  margin: auto;
+  margin: 20px auto;
   border-collapse: collapse;
-  width: 80%;
+  width: 90%;
+  max-width: 600px;
   background: white;
   color: black;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
 }
 
 th {
-  background: #142850;
+  background: #0b5d3b;
   color: white;
 }
 
-.dua-list {
-  text-align: left;
-  max-width: 600px;
-  margin: auto;
+/* ================= CARDS ================= */
+.card {
+  background: white;
+  padding: 15px;
+  margin: 12px auto;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
-.dua-list li {
-  margin: 8px 0;
-}
+/* ================= MAP BUTTON ================= */
 .map-btn {
   display: inline-block;
-  background: gold;
-  color: black;
+  background: #0b5d3b;
+  color: white;
   padding: 10px 18px;
   border-radius: 6px;
   text-decoration: none;
@@ -77,9 +135,10 @@ th {
 }
 
 .map-btn:hover {
-  background: #ffd700;
+  background: #083d2b;
 }
 
+/* ================= GALLERY ================= */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -88,170 +147,83 @@ th {
 }
 
 .gallery img {
-  width: 220px;        /* controls size */
-  height: 160px;       /* uniform height */
-  object-fit: cover;   /* prevents stretching */
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
   border-radius: 8px;
+  transition: 0.3s;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
-  transition: 0.3s;
 }
 
-
-
+/* ================= FOOTER ================= */
 footer {
-  background: #0f3057;
+  background: #083d2b;
   padding: 15px;
   margin-top: 30px;
   font-size: 14px;
   color: #ddd;
 }
 
-
+/* ================= CLOCK ================= */
 #clock {
-  font-size: 22px;
-  color: gold;
+  font-size: 20px;
+  color: #0b5d3b;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-.fasting-table {
-  width: 90%;
-  max-width: 600px;
-  margin: 15px auto;
-  border-collapse: collapse;
-  text-align: center;
-}
-
-.fasting-table th {
-  background: #142850;
-  color: white;
-  padding: 10px;
-}
-
-.fasting-table td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  font-weight: bold;
-}
-
-.fasting-table tr:nth-child(2) {
-  background: #fff3cd;
-}
-
-.fasting-table tr:nth-child(3) {
-  background: #e8f5e9;
-}
-
-/* Warning (last seconds) */
-.warning {
-  color: red;
-  font-weight: bold;
-}
-
-/* Sehri blink (RED) */
-.blink-sehri {
-  animation: blinkAnim 1s infinite;
-  color: red;
-  font-weight: bold;
-}
-
-/* Iftar blink (GREEN) */
-.blink-iftar {
-  animation: blinkAnim 1s infinite;
-  color: green;
-  font-weight: bold;
-}
-
-@keyframes blinkAnim {
-  50% { opacity: 0; }
-}
-
-
+/* ================= DUA SECTIONS ================= */
 .dua-box {
   margin-bottom: 12px;
 }
 
 .dua-btn {
   width: 100%;
-  padding: 10px;
-  background: #0f5132;
-  color: white; /* better contrast */
+  padding: 12px;
+  background: #0b5d3b;
+  color: white;
   border: none;
   text-align: left;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 6px;
   cursor: pointer;
-  touch-action: manipulation;
 }
 
 .dua-content {
   display: none;
-  background: #000; /* black background */
-  color: #fff; /* text visible on black */
+  background: #ffffff;
+  color: #222;
   padding: 12px;
   border-radius: 6px;
   margin-top: 5px;
   line-height: 1.6;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-
-.guide-title {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #0f5132;
+.dua-content.show {
+  display: block;
 }
 
-.guide-container {
-  display: grid;
-  gap: 12px;
-}
-
-.guide-card {
-  background: black;
-  border-left: 5px solid #0f5132;
-  padding: 14px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.guide-card:hover {
-  transform: translateY(-3px);
-}
-
-.guide-card h3 {
-  margin: 6px 0;
-  color: #0f5132;
-}
-
-.icon {
-  font-size: 22px;
-}
-
-nav button.active-btn {
-  background: #0f5132;
-  color: white;
-}
-
-tasbeeh-section {
+/* ================= TASBEEH COUNTERS ================= */
+.tasbeeh-section {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
   margin-top: 15px;
+  align-items: center;
 }
 
 .counter-card {
-  background: blueviolet;
+  background: #ffffff;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 220px;
-  cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  width: 240px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   transition: 0.15s;
 }
 
@@ -260,22 +232,47 @@ tasbeeh-section {
 }
 
 .counter-display {
-  font-size: 42px;
+  font-size: 40px;
   font-weight: bold;
-  color: black;
+  color: #0b5d3b;
   margin: 10px 0;
+  cursor: pointer;
+  user-select: none;
 }
 
 .counter-card button {
-  padding: 6px 16px;
+  padding: 8px 18px;
   border: none;
   border-radius: 6px;
-  background: white;
+  background: #0b5d3b;
+  color: white;
   cursor: pointer;
 }
 
 .counter-note {
   font-size: 13px;
-  color: black;
+  color: #555;
   margin-top: 8px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav button {
+    width: 90%;
+  }
+
+  table {
+    width: 100%;
+  }
+}
+
+#hijriDate {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0b5d3b;
+  margin-top: 5px;
 }
