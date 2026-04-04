@@ -60,13 +60,30 @@ updateClocks();
 
 
 /* ── Hijri date ── */
+const HIJRI_MONTHS = [
+  'Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani',
+  'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Sha\'ban',
+  'Ramadan', 'Shawwal', 'Dhul Qa\'dah', 'Dhul Hijjah'
+];
+
 function updateHijriDate() {
   try {
-    const hijri = new Intl.DateTimeFormat('en-u-ca-islamic', {
-      day: 'numeric', month: 'long', year: 'numeric'
-    }).format(new Date());
+    const today = new Date();
+
+    // Get individual hijri parts using numeric month (reliable cross-browser)
+    const dayFmt  = new Intl.DateTimeFormat('en-u-ca-islamic', { day: 'numeric' }).format(today);
+    const monthFmt = new Intl.DateTimeFormat('en-u-ca-islamic', { month: 'numeric' }).format(today);
+    const yearFmt  = new Intl.DateTimeFormat('en-u-ca-islamic', { year: 'numeric' }).format(today);
+
+    // yearFmt may look like "1447 AH" — extract the number
+    const year  = yearFmt.replace(/\D/g, '');
+    // monthFmt is 1-based numeric
+    const monthIndex = parseInt(monthFmt, 10) - 1;
+    const monthName  = HIJRI_MONTHS[monthIndex] || monthFmt;
+    const day = parseInt(dayFmt, 10);
+
     const el = document.getElementById('hijriDate');
-    if (el) el.textContent = hijri;
+    if (el) el.textContent = `${day} ${monthName} ${year} AH`;
   } catch (e) {
     const el = document.getElementById('hijriDate');
     if (el) el.textContent = 'Hijri date unavailable';
