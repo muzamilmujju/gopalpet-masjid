@@ -110,24 +110,31 @@ ul { list-style: none; }
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  padding: 6px;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201,168,76,0.15);
+  border: 1.5px solid var(--gold);
+  border-radius: 8px;
+  padding: 10px 12px;
   cursor: pointer;
   flex-shrink: 0;
+  min-width: 48px;
+  min-height: 44px;
+  transition: background var(--transition);
 }
+.hamburger:hover { background: rgba(201,168,76,0.3); }
 .hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--gold-light);
-  border-radius: 2px;
+  width: 26px;
+  height: 2.5px;
+  background: var(--gold);
+  border-radius: 3px;
   transition: var(--transition);
 }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open { background: rgba(201,168,76,0.25); }
+.hamburger.open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
 
 /* ================================================================
    HERO
@@ -675,23 +682,38 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .hamburger { display: flex; }
 
+  .navbar { height: 64px; padding: 0 16px; }
+
   .nav-links {
     position: fixed;
-    top: 60px;
+    top: 64px;
     left: 0;
     right: 0;
     background: var(--green-900);
     flex-direction: column;
-    padding: 16px 0 24px;
+    padding: 12px 0 20px;
     gap: 4px;
     border-bottom: 2px solid var(--gold);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     transform: translateY(-110%);
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     z-index: 99;
+    pointer-events: none;
   }
-  .nav-links.open { transform: translateY(0); }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
 
-  .nav-btn { width: 90%; margin: 0 auto; text-align: center; }
+  .nav-btn {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
 
   .hero { min-height: 85vh; }
 
