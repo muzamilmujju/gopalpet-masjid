@@ -1,96 +1,123 @@
-// ================= TAB SWITCH (FIXED + CLEAN) =================
-function showTab(tabId, btn = null) {
-  const tabs = document.querySelectorAll('.tab');
-  const buttons = document.querySelectorAll('nav button');
+/* ================================================================
+   GOPALPET MASJID — script.js
+   ================================================================ */
 
-  tabs.forEach(tab => tab.classList.remove('active'));
-  buttons.forEach(button => button.classList.remove('active-btn'));
+/* ── Tab switching ── */
+function showTab(tabId) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active-btn'));
 
-  document.getElementById(tabId).classList.add('active');
+  const target = document.getElementById(tabId);
+  if (target) target.classList.add('active');
 
-  // Fix: event issue removed
-  if (btn) {
-    btn.classList.add('active-btn');
-  }
+  const btn = document.querySelector(`.nav-btn[data-tab="${tabId}"]`);
+  if (btn) btn.classList.add('active-btn');
+
+  // Close mobile menu
+  navLinks.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Auto bind buttons (better way)
-document.querySelectorAll("nav button").forEach(button => {
-  button.addEventListener("click", function () {
-    const tabId = this.getAttribute("onclick").match(/'(.*?)'/)[1];
-    showTab(tabId, this);
-  });
+// Bind nav buttons
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => showTab(btn.dataset.tab));
+});
+
+// Quick cards via onclick already use showTab()
+
+
+/* ── Hamburger menu ── */
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  hamburger.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', String(isOpen));
 });
 
 
-// ================= LIVE CLOCK =================
-function updateClock() {
-  const now = new Date();
+/* ── Live clock ── */
+function formatTime(d) {
+  let h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
+}
 
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  let seconds = now.getSeconds();
+function updateClocks() {
+  const t = formatTime(new Date());
+  const c1 = document.getElementById('clock');
+  const c2 = document.getElementById('heroClock');
+  if (c1) c1.textContent = t;
+  if (c2) c2.textContent = t;
+}
+setInterval(updateClocks, 1000);
+updateClocks();
 
-  const ampm = hours >= 12 ? "PM" : "AM";
 
-  hours = hours % 12 || 12;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
+/* ── Hijri date ── */
+function updateHijriDate() {
+  try {
+    const hijri = new Intl.DateTimeFormat('en-u-ca-islamic', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    }).format(new Date());
+    const el = document.getElementById('hijriDate');
+    if (el) el.textContent = hijri;
+  } catch (e) {
+    const el = document.getElementById('hijriDate');
+    if (el) el.textContent = 'Hijri date unavailable';
+  }
+}
+updateHijriDate();
 
-  const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
 
-  const clock = document.getElementById("clock");
-  if (clock) {
-    clock.innerHTML = "Current Time: " + timeString;
+/* ── Accordion (Duas) ── */
+function toggleDua(id) {
+  const body = document.getElementById(id);
+  if (!body) return;
+
+  const btn = body.closest('.accordion-item')?.querySelector('.accordion-btn');
+  const isShown = body.classList.contains('show');
+
+  // Close all
+  document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('show'));
+  document.querySelectorAll('.accordion-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+  // Toggle current
+  if (!isShown) {
+    body.classList.add('show');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
   }
 }
 
-setInterval(updateClock, 1000);
-updateClock();
 
-
-// ================= DUA TOGGLE (IMPROVED) =================
-function toggleDua(id) {
-  const sections = document.querySelectorAll('.dua-content');
-
-  sections.forEach(section => {
-    if (section.id !== id) {
-      section.classList.remove("show");
-    }
-  });
-
-  const content = document.getElementById(id);
-  content.classList.toggle("show");
-}
-
-
-// ================= TASBEEH COUNTER =================
-let dhikrCount = 0;
+/* ── Dhikr counter ── */
+const DHIKR_NAMES = ['SubhanAllah', 'Alhamdulillah', 'Allahu Akbar'];
+let dhikrCount   = 0;
 let generalCount = 0;
 
-// DHIKR COUNTER
 function updateDhikr() {
-  const name = document.getElementById("dhikrName");
-  const display = document.getElementById("dhikrCount");
+  document.getElementById('dhikrCount').textContent = dhikrCount;
 
-  display.textContent = dhikrCount;
+  const phase = dhikrCount <= 33 ? 0 : dhikrCount <= 66 ? 1 : 2;
+  document.getElementById('dhikrName').textContent = DHIKR_NAMES[phase];
 
-  if (dhikrCount <= 33) {
-    name.textContent = "SubhanAllah";
-  } else if (dhikrCount <= 66) {
-    name.textContent = "Alhamdulillah";
-  } else {
-    name.textContent = "Allahu Akbar";
-  }
+  const bar = document.getElementById('dhikrBar');
+  if (bar) bar.style.width = `${(dhikrCount / 99) * 100}%`;
 
   if (dhikrCount >= 99) {
-    dhikrCount = 0;
+    setTimeout(() => { dhikrCount = 0; updateDhikr(); }, 600);
   }
 }
 
 function increaseDhikr() {
   dhikrCount++;
   updateDhikr();
+  pulse('dhikrApp');
 }
 
 function resetDhikr() {
@@ -99,44 +126,58 @@ function resetDhikr() {
 }
 
 
-// GENERAL COUNTER
+/* ── General counter ── */
+function updateGeneral() {
+  document.getElementById('generalCount').textContent = generalCount;
+  const bar = document.getElementById('generalBar');
+  if (bar) bar.style.width = `${Math.min((generalCount / 99) * 100, 100)}%`;
+}
+
 function increaseGeneral() {
   generalCount++;
-  document.getElementById("generalCount").textContent = generalCount;
+  updateGeneral();
+  pulse('generalApp');
 }
 
 function resetGeneral() {
   generalCount = 0;
-  document.getElementById("generalCount").textContent = generalCount;
+  updateGeneral();
 }
 
 
-// ================= CLICK HANDLER (SMART) =================
-document.addEventListener("click", function (e) {
-  const dhikr = document.getElementById("dhikrApp");
-  const general = document.getElementById("generalApp");
+/* ── Pulse animation helper ── */
+function pulse(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.transform = 'scale(0.96)';
+  setTimeout(() => el.style.transform = '', 120);
+}
 
-  if (dhikr && dhikr.contains(e.target) && e.target.tagName !== "BUTTON") {
-    increaseDhikr();
-  }
 
-  if (general && general.contains(e.target) && e.target.tagName !== "BUTTON") {
-    increaseGeneral();
+/* ── Smart click handler for counter cards ── */
+document.addEventListener('click', e => {
+  const dhikr   = document.getElementById('dhikrApp');
+  const general = document.getElementById('generalApp');
+  if (dhikr   && dhikr.contains(e.target)   && e.target.tagName !== 'BUTTON') increaseDhikr();
+  if (general && general.contains(e.target) && e.target.tagName !== 'BUTTON') increaseGeneral();
+});
+
+/* ── Keyboard support for counter cards ── */
+document.addEventListener('keydown', e => {
+  if (e.key === ' ' || e.key === 'Enter') {
+    const focused = document.activeElement;
+    const dhikr   = document.getElementById('dhikrApp');
+    const general = document.getElementById('generalApp');
+    if (dhikr   && dhikr.contains(focused)   && focused.tagName !== 'BUTTON') { e.preventDefault(); increaseDhikr(); }
+    if (general && general.contains(focused) && focused.tagName !== 'BUTTON') { e.preventDefault(); increaseGeneral(); }
   }
 });
 
-// ================= HIJRI DATE =================
-// ================= HIJRI DATE =================
-function updateHijriDate() {
-  const today = new Date();
 
-  const hijri = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(today);
-
-  document.getElementById("hijriDate").textContent = hijri;
-}
-
-updateHijriDate();
+/* ── Navbar shadow on scroll ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.style.boxShadow = window.scrollY > 10
+    ? '0 4px 20px rgba(0,0,0,0.3)'
+    : 'none';
+}, { passive: true });
