@@ -5,218 +5,344 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gopalpet Masjid</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <h1>🕌 Gopalpet Masjid 🕌</h1>
-  <p>Serving the community with faith and unity</p>
-</header>
-
-<!-- NAVBAR -->
-<nav class="navbar">
-  <button onclick="showTab('home')">Home</button>
-  <button onclick="showTab('prayer')">Prayer Timings</button>
-  <button onclick="showTab('duas')">Duas</button>
-  <button onclick="showTab('services')">Services</button>
-  <button onclick="showTab('gallery')">Gallery</button>
-  <button onclick="showTab('location')">Location</button>
+<!-- ========= NAVBAR ========= -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-brand">
+    <span class="nav-icon">🕌</span>
+    <span class="nav-title">Gopalpet Masjid</span>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks" role="menubar">
+    <li role="none"><button class="nav-btn active-btn" data-tab="home" role="menuitem">Home</button></li>
+    <li role="none"><button class="nav-btn" data-tab="prayer" role="menuitem">Prayer Times</button></li>
+    <li role="none"><button class="nav-btn" data-tab="duas" role="menuitem">Duas</button></li>
+    <li role="none"><button class="nav-btn" data-tab="services" role="menuitem">Services</button></li>
+    <li role="none"><button class="nav-btn" data-tab="gallery" role="menuitem">Gallery</button></li>
+    <li role="none"><button class="nav-btn" data-tab="location" role="menuitem">Location</button></li>
+  </ul>
 </nav>
 
-<!-- HOME -->
+<!-- ========= HERO ========= -->
 <section id="home" class="tab active">
-  <h2>Assalamu Alaikum</h2>
-  <p>
-    Welcome to Gopalpet Masjid. This website provides daily prayer timings,
-    duas, and important updates for our community. May Allah bless everyone.
+  <header class="hero" aria-label="Welcome banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-arabic" aria-label="Bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+      <h1 class="hero-title">Gopalpet Masjid</h1>
+      <p class="hero-subtitle">Serving the community with faith, unity & love</p>
+      <div class="hero-badges">
+        <div class="badge" id="hijriDate" aria-label="Hijri date">Loading date…</div>
+        <div class="badge" id="heroClock" aria-live="polite"></div>
+      </div>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="showTab('prayer')">Prayer Times</button>
+        <button class="btn-outline" onclick="showTab('location')">Find Us</button>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span></span>
+    </div>
+  </header>
 
-   <!-- HIJRI DATE -->
-<div class="card">
-  <h3>Hijri Date</h3>
-  <p id="hijriDate">Loading...</p>
-</div>
-
-  </p>
+  <!-- Quick Cards -->
+  <div class="quick-section">
+    <div class="quick-grid">
+      <div class="quick-card" onclick="showTab('prayer')" role="button" tabindex="0" aria-label="Go to Prayer Times">
+        <div class="quick-icon">🕐</div>
+        <h3>Prayer Times</h3>
+        <p>Daily azaan & jamaat schedule</p>
+      </div>
+      <div class="quick-card" onclick="showTab('duas')" role="button" tabindex="0" aria-label="Go to Duas">
+        <div class="quick-icon">📿</div>
+        <h3>Duas & Dhikr</h3>
+        <p>Tasbeeh counters & daily duas</p>
+      </div>
+      <div class="quick-card" onclick="showTab('services')" role="button" tabindex="0" aria-label="Go to Services">
+        <div class="quick-icon">🌙</div>
+        <h3>Services</h3>
+        <p>Community programs & education</p>
+      </div>
+      <div class="quick-card" onclick="showTab('location')" role="button" tabindex="0" aria-label="Go to Location">
+        <div class="quick-icon">📍</div>
+        <h3>Location</h3>
+        <p>Find us on Google Maps</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ========= PRAYER TIMES ========= -->
+<section id="prayer" class="tab" aria-labelledby="prayer-heading">
+  <div class="page-header">
+    <p class="page-arabic">الصَّلَاةُ خَيْرٌ مِّنَ النَّوْمِ</p>
+    <h2 id="prayer-heading">Daily Prayer Timings</h2>
+    <p class="page-sub">All times are for Gopalpet, Telangana</p>
+    <div class="live-clock" id="clock" aria-live="polite"></div>
+  </div>
 
+  <div class="prayer-grid">
+    <div class="prayer-card fajr">
+      <div class="prayer-name">Fajr</div>
+      <div class="prayer-times"><span>Azaan: 5:15 AM</span><span>Jamaat: 5:35 AM</span></div>
+    </div>
+    <div class="prayer-card dhuhr">
+      <div class="prayer-name">Dhuhr</div>
+      <div class="prayer-times"><span>Azaan: 1:15 PM</span><span>Jamaat: 1:30 PM</span></div>
+    </div>
+    <div class="prayer-card asr">
+      <div class="prayer-name">Asr</div>
+      <div class="prayer-times"><span>Azaan: 4:55 PM</span><span>Jamaat: 5:10 PM</span></div>
+    </div>
+    <div class="prayer-card maghrib">
+      <div class="prayer-name">Maghrib</div>
+      <div class="prayer-times"><span>Azaan: 6:28 PM</span><span>Jamaat: 6:30 PM</span></div>
+    </div>
+    <div class="prayer-card isha">
+      <div class="prayer-name">Isha</div>
+      <div class="prayer-times"><span>Azaan: 8:00 PM</span><span>Jamaat: 8:30 PM</span></div>
+    </div>
+    <div class="prayer-card jumuah">
+      <div class="prayer-name">Jumu'ah</div>
+      <div class="prayer-times"><span>Azaan: 12:30 PM</span><span>Jamaat: 1:40 PM</span></div>
+    </div>
+  </div>
 
-<!-- SERVICES -->
-<section id="services" class="tab">
-  <h2>Masjid Services</h2>
-
-  <div class="card">Daily Prayers (5 Times)</div>
-  <div class="card">Jumu'ah Prayer</div>
-  <div class="card">Islamic Education</div>
-  <div class="card">Community Support</div>
+  <p class="prayer-note">⚠️ Prayer times may vary slightly. Please check with the masjid for updates.</p>
 </section>
 
-<!-- PRAYER TIMES -->
-<section id="prayer" class="tab">
-  <h3 id="clock"></h3>
-  <h2>Daily Prayer Timings</h2>
+<!-- ========= DUAS ========= -->
+<section id="duas" class="tab" aria-labelledby="duas-heading">
+  <div class="page-header">
+    <p class="page-arabic">وَاذْكُرُوا اللَّهَ كَثِيرًا</p>
+    <h2 id="duas-heading">Duas & Dhikr</h2>
+    <p class="page-sub">Remember Allah often</p>
+  </div>
 
-  <table>
-    <tr>
-      <th>Prayer</th>
-      <th>Azaan</th>
-      <th>Jamaat</th>
-    </tr>
-    <tr><td>Fajr</td><td>5:15 AM</td><td>5:35 AM</td></tr>
-    <tr><td>Dhuhr</td><td>1:15 PM</td><td>1:30 PM</td></tr>
-    <tr><td>Asr</td><td>4:55 PM</td><td>5:10 PM</td></tr>
-    <tr><td>Maghrib</td><td>6:28 PM</td><td>6:30 PM</td></tr>
-    <tr><td>Isha</td><td>8:00 PM</td><td>8:30 PM</td></tr>
-    <tr><td>Jumu'ah</td><td>12:30 PM</td><td>1:40 PM</td></tr>
-  </table>
-</section>
-
-<!-- DUAS (UNCHANGED CONTENT) -->
-<section id="duas" class="tab">
-
-<div class="dua-box">
-  <button type="button" class="dua-btn" onclick="toggleDua('tasbeehCounters')">
-    Tasbeeh Counters ▼
-  </button>
-
-  <div id="tasbeehCounters" class="dua-content tasbeeh-section">
-
-    <div class="counter-card" id="dhikrApp">
-      <h3 id="dhikrName">SubhanAllah</h3>
-      <div class="counter-display" id="dhikrCount">0</div>
-      <button onclick="resetDhikr()">Reset</button>
-      <p class="counter-note">Auto cycle: 33 → 99</p>
+  <div class="duas-wrapper">
+    <!-- Tasbeeh Counters -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleDua('tasbeehCounters')" aria-expanded="false" aria-controls="tasbeehCounters">
+        <span>📿 Tasbeeh Counters</span>
+        <span class="accordion-arrow">▾</span>
+      </button>
+      <div id="tasbeehCounters" class="accordion-body">
+        <div class="counter-row">
+          <div class="counter-card" id="dhikrApp" role="button" tabindex="0" aria-label="Dhikr counter, tap to count">
+            <h3 id="dhikrName">SubhanAllah</h3>
+            <div class="counter-display" id="dhikrCount">0</div>
+            <div class="counter-track"><div class="counter-bar" id="dhikrBar"></div></div>
+            <button class="btn-reset" onclick="resetDhikr()">Reset</button>
+            <p class="counter-note">Auto cycle: SubhanAllah → Alhamdulillah → Allahu Akbar</p>
+          </div>
+          <div class="counter-card" id="generalApp" role="button" tabindex="0" aria-label="General tasbeeh counter, tap to count">
+            <h3>General Tasbeeh</h3>
+            <div class="counter-display" id="generalCount">0</div>
+            <div class="counter-track"><div class="counter-bar" id="generalBar"></div></div>
+            <button class="btn-reset" onclick="resetGeneral()">Reset</button>
+            <p class="counter-note">Use for any zikr</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="counter-card" id="generalApp">
-      <h3>General Tasbeeh</h3>
-      <div class="counter-display" id="generalCount">0</div>
-      <button onclick="resetGeneral()">Reset</button>
-      <p class="counter-note">Use for any zikr</p>
+    <!-- Duas List -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleDua('ramadanDua')" aria-expanded="false" aria-controls="ramadanDua">
+        <span>🤲 Daily Duas</span>
+        <span class="accordion-arrow">▾</span>
+      </button>
+      <div id="ramadanDua" class="accordion-body">
+        <ul class="dua-list">
+          <li>Astaghfirullah</li><li>Allahumma innaka afuwwun tuhibbul afwa fa'fu anni</li>
+          <li>Rabbi ighfir li wa tub 'alayya</li><li>Allahummaghfir li dhanbi kullahu</li>
+          <li>Allahumma taqabbal minna siyamana wa qiyamana</li>
+          <li>Allahumma taqabbal minna innaka antas-sami'ul 'aleem</li>
+          <li>Allahumma inni laka sumtu</li><li>Allahumma inni laka sumtu wa bika aamantu</li>
+          <li>Allahumma inni as'aluka al-jannah</li><li>Wa a'udhu bika minan-naar</li>
+          <li>Allahumma ajirni minan-naar</li><li>Allahumma ihdini siratal mustaqeem</li>
+          <li>Allahumma thabbit qalbi ala deenik</li><li>Allahumma zidna imanan</li>
+          <li>Allahumma barik lana fima razaqtana</li><li>Allahumma inni as'aluka rizqan tayyiban</li>
+          <li>Allahumma la sahla illa ma ja'altahu sahla</li><li>Rabbi yassir wa la tu'assir</li>
+          <li>Allahumma inni as'aluka al-'afiyah</li><li>Allahumma ishfi maradana</li>
+          <li>Allahumma a'inni ala dhikrika wa shukrika</li>
+          <li>Allahumma ij'alni minas-sabireen</li>
+          <li>Rabbir hamhuma kama rabbayani sagheera</li>
+          <li>Allahumma ihfaz ahli wa awladi</li><li>Rabbi zidni ilma</li>
+          <li>Allahumma inni as'aluka husnal khatimah</li>
+          <li>Allahumma barik lana fi awqatina</li>
+          <li>Allahumma ij'al qalbi nooran</li>
+          <li>Allahumma aslih li sha'ni kullah</li>
+          <li>Allahumma ij'alna min al-muttaqeen</li>
+        </ul>
+      </div>
     </div>
 
-  </div>
-</div>
+    <!-- Morning & Evening -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleDua('morningDua')" aria-expanded="false" aria-controls="morningDua">
+        <span>🌅 Morning & Evening Duas</span>
+        <span class="accordion-arrow">▾</span>
+      </button>
+      <div id="morningDua" class="accordion-body">
+        <div class="dua-text">
+          <p>Bismillahillazi la yadurru ma'asmihi shay'un fil-ardi wa la fis-sama'i wa huwas-sami'ul 'aleem</p>
+          <p>Astaghfirullaha Rabbi min kulli dhanbin wa atubu ilayh</p>
+        </div>
+      </div>
+    </div>
 
-<div class="dua-box">
-  <button type="button" class="dua-btn" onclick="toggleDua('ramadanDua')">
-    Duas ▼
-  </button>
-  <div id="ramadanDua" class="dua-content">
-    <ul>
-      <li>Astaghfirullah</li>
-      <li>Allahumma innaka afuwwun tuhibbul afwa fa’fu anni</li>
-      <li>Rabbi ighfir li wa tub ‘alayya</li>
-      <li>Allahummaghfir li dhanbi kullahu</li>
-      <li>Allahumma taqabbal minna siyamana wa qiyamana</li>
-      <li>Allahumma taqabbal minna innaka antas-sami‘ul ‘aleem</li>
-      <li>Allahumma inni laka sumtu</li>
-      <li>Allahumma inni laka sumtu wa bika aamantu</li>
-      <li>Allahumma inni as’aluka al-jannah</li>
-      <li>Wa a’udhu bika minan-naar</li>
-      <li>Allahumma ajirni minan-naar</li>
-      <li>Allahumma ihdini siratal mustaqeem</li>
-      <li>Allahumma thabbit qalbi ala deenik</li>
-      <li>Allahumma zidna imanan</li>
-      <li>Allahumma barik lana fima razaqtana</li>
-      <li>Allahumma inni as’aluka rizqan tayyiban</li>
-      <li>Allahumma la sahla illa ma ja‘altahu sahla</li>
-      <li>Rabbi yassir wa la tu’assir</li>
-      <li>Allahumma inni as’aluka al-‘afiyah</li>
-      <li>Allahumma ishfi maradana</li>
-      <li>Allahumma a’inni ala dhikrika wa shukrika</li>
-      <li>Allahumma ij’alni minas-sabireen</li>
-      <li>Rabbir hamhuma kama rabbayani sagheera</li>
-      <li>Allahumma ihfaz ahli wa awladi</li>
-      <li>Rabbi zidni ilma</li>
-      <li>Allahumma inni as’aluka husnal khatimah</li>
-      <li>Allahumma barik lana fi awqatina</li>
-      <li>Allahumma ij’al qalbi nooran</li>
-      <li>Allahumma aslih li sha’ni kullah</li>
-      <li>Allahumma ij’alna min al-muttaqeen</li>
-    </ul>
-  </div>
-</div>
+    <!-- Surah Al-Qadr -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleDua('qadrSurah')" aria-expanded="false" aria-controls="qadrSurah">
+        <span>🌙 Surah Al-Qadr</span>
+        <span class="accordion-arrow">▾</span>
+      </button>
+      <div id="qadrSurah" class="accordion-body">
+        <div class="dua-text quran-verse">
+          Innaa anzalnaahu fee laylatil qadr<br>
+          Wa maa adraaka maa laylatul qadr<br>
+          Laylatul qadri khayrun min alfi shahr<br>
+          Tanazzalul malaa'ikatu war-roohu feehaa bi izni rabbihim min kulli amr<br>
+          Salaamun hiya hatta matla'il fajr
+        </div>
+      </div>
+    </div>
 
-<div class="dua-box">
-  <button type="button" class="dua-btn" onclick="toggleDua('morningDua')">
-    Morning & Evening Duas ▼
-  </button>
-  <div id="morningDua" class="dua-content">
-    <p>Bismillahillazi la yadurru ma'asmihi shay'un</p>
-    <p>Astaghfirullaha Rabbi min kulli dhanbin wa atubu ilayh</p>
-  </div>
-</div>
-
-<div class="dua-box">
-  <button type="button" class="dua-btn" onclick="toggleDua('qadrSurah')">
-    Surah Al-Qadr ▼
-  </button>
-  <div id="qadrSurah" class="dua-content">
-    Innaa anzalnaahu fee laylatil qadr<br>
-    Wa maa adraaka maa laylatul qadr<br>
-    Laylatul qadri khayrun min alfi shahr<br>
-    Tanazzalul malaa’ikatu war-roohu feehaa bi izni rabbihim min kulli amr<br>
-    Salaamun hiya hatta matla'il fajr
-  </div>
-</div>
-
-<div class="dua-box">
-  <button type="button" class="dua-btn" onclick="toggleDua('kursiSurah')">
-    Ayatul Kursi ▼
-  </button>
-  <div id="kursiSurah" class="dua-content">
-    Allahu la ilaha illa huwa al-hayyul qayyum.<br>
-    La ta’khudhuhu sinatun wa la nawm.<br>
-    Lahu ma fis-samawati wa ma fil-ard.<br>
-    Man dhal-ladhi yashfa’u ‘indahu illa bi-idhnih.<br>
-    Ya’lamu ma bayna aydihim wa ma khalfahum.<br>
-    Wa la yuhituna bi shay’in min ‘ilmihi illa bima sha’.<br>
-    Wasi‘a kursiyyuhus-samawati wal-ard.<br>
-    Wa la ya’uduhu hifdhuhuma.<br>
-    Wa huwal ‘aliyyul ‘azeem.
-  </div>
-</div>
-
-</section>
-
-<!-- GALLERY -->
-<section id="gallery" class="tab">
-  <h2>Masjid Gallery</h2>
-
-  <div class="gallery">
-    <img src="masjidphoto1.jpeg" alt="Masjid View">
-    <img src="masjid2.jpg" alt="Prayer Hall">
-    <img src="masjid3.jpg" alt="Evening View">
+    <!-- Ayatul Kursi -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggleDua('kursiSurah')" aria-expanded="false" aria-controls="kursiSurah">
+        <span>✨ Ayatul Kursi</span>
+        <span class="accordion-arrow">▾</span>
+      </button>
+      <div id="kursiSurah" class="accordion-body">
+        <div class="dua-text quran-verse">
+          Allahu la ilaha illa huwa al-hayyul qayyum.<br>
+          La ta'khudhuhu sinatun wa la nawm.<br>
+          Lahu ma fis-samawati wa ma fil-ard.<br>
+          Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih.<br>
+          Ya'lamu ma bayna aydihim wa ma khalfahum.<br>
+          Wa la yuhituna bi shay'in min 'ilmihi illa bima sha'.<br>
+          Wasi'a kursiyyuhus-samawati wal-ard.<br>
+          Wa la ya'uduhu hifdhuhuma.<br>
+          Wa huwal 'aliyyul 'azeem.
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- LOCATION -->
-<section id="location" class="tab">
-  <h2>Masjid Location</h2>
+<!-- ========= SERVICES ========= -->
+<section id="services" class="tab" aria-labelledby="services-heading">
+  <div class="page-header">
+    <p class="page-arabic">وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ</p>
+    <h2 id="services-heading">Masjid Services</h2>
+    <p class="page-sub">Serving the community every day</p>
+  </div>
 
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.5482385012233!2d78.1434093!3d16.396959799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bca11007fc93c65%3A0xe4d41fb6372b6f6b!2sJamia%20masjid%20gopalpeta!5e0!3m2!1sen!2sin!4v1771311045059!5m2!1sen!2sin"
-    width="100%" height="320" style="border:0;" allowfullscreen loading="lazy">
-  </iframe>
-
-  <br><br>
-
-  <a href="https://maps.app.goo.gl/SfXpAiyHqHBge3xQA" target="_blank">
-    Open in Google Maps
-  </a>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🕐</div>
+      <h3>Five Daily Prayers</h3>
+      <p>All five daily salah with congregation, open to everyone</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🕌</div>
+      <h3>Jumu'ah Prayer</h3>
+      <p>Weekly Friday sermon and congregational prayer at 1:40 PM</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📚</div>
+      <h3>Islamic Education</h3>
+      <p>Qur'an classes, Islamic studies, and youth programs</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <h3>Community Support</h3>
+      <p>Social welfare, counselling, and community outreach</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌙</div>
+      <h3>Ramadan Programs</h3>
+      <p>Taraweeh, Iftar gatherings, and special lectures</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🫶</div>
+      <h3>Funeral Services</h3>
+      <p>Janaza prayer arrangements and burial assistance</p>
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Gopalpet Masjid</p>
-  <p>Managed by Masjid Youth Committee</p>
+<!-- ========= GALLERY ========= -->
+<section id="gallery" class="tab" aria-labelledby="gallery-heading">
+  <div class="page-header">
+    <h2 id="gallery-heading">Masjid Gallery</h2>
+    <p class="page-sub">Glimpses of our beautiful masjid</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item large">
+      <img src="masjidphoto1.jpeg" alt="Gopalpet Masjid exterior view" loading="lazy">
+      <div class="gallery-overlay"><span>Masjid View</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="masjid2.jpg" alt="Prayer hall interior" loading="lazy">
+      <div class="gallery-overlay"><span>Prayer Hall</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="masjid3.jpg" alt="Evening view of masjid" loading="lazy">
+      <div class="gallery-overlay"><span>Evening View</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= LOCATION ========= -->
+<section id="location" class="tab" aria-labelledby="location-heading">
+  <div class="page-header">
+    <h2 id="location-heading">Find Us</h2>
+    <p class="page-sub">Jamia Masjid, Gopalpeta, Telangana</p>
+  </div>
+
+  <div class="location-wrapper">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.5482385012233!2d78.1434093!3d16.396959799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bca11007fc93c65%3A0xe4d41fb6372b6f6b!2sJamia%20masjid%20gopalpeta!5e0!3m2!1sen!2sin!4v1771311045059!5m2!1sen!2sin"
+        width="100%" height="380" style="border:0;" allowfullscreen loading="lazy"
+        title="Gopalpet Masjid on Google Maps"
+        aria-label="Google Maps showing Gopalpet Masjid location">
+      </iframe>
+    </div>
+    <div class="location-info">
+      <div class="info-row"><span>📍</span><span>Jamia Masjid, Gopalpeta, Wanaparthy District, Telangana</span></div>
+      <div class="info-row"><span>🕐</span><span>Open daily for all 5 prayers</span></div>
+      <a class="btn-primary" href="https://maps.app.goo.gl/SfXpAiyHqHBge3xQA" target="_blank" rel="noopener noreferrer">
+        Open in Google Maps ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="nav-icon">🕌</span>
+      <span>Gopalpet Masjid</span>
+    </div>
+    <p class="footer-arabic">رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ</p>
+    <p class="footer-copy">© 2026 Gopalpet Masjid · Managed by the Masjid Youth Committee</p>
+  </div>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
